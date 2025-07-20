@@ -1,13 +1,13 @@
 {
-  "modid": "${ModID}",
-  "name": "${project.name}",
+  "modid": "dreadbloonsurv",
+  "name": "Dreadbloon StS",
   "author_list": [
-    "Anonymous, as of yet!"
+    "Derpy_Jacob_903"
   ],
-  "description": "${project.description}",
-  "version": "${project.version}",
-  "sts_version": "${SlayTheSpire.version}",
-  "mts_version": "${ModTheSpire.version}",
+  "description": "TODO: Change this description",
+  "version": "0.0.1",
+  "sts_version": "12-22-2020",
+  "mts_version": "3.18.2",
   "dependencies": [
     "basemod",
     "stslib"

@@ -1,0 +1,100 @@
+{
+  "${ModID}:TodoItem": {
+    "NAME": "Todo Item",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Has no effect."
+    ]
+  },
+  "${ModID}:RockyDeck": {
+    "NAME": "Rocky Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add a Rock Bloon to your hand. It costs 0 [${ModID}:BloontoniumIcon]"
+    ]
+  },
+  "${ModID}:PerceptiveShot": {
+    "NAME": "Archer Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "When you play a Bloon, deal 2 damage per Act to its target."
+    ]
+  },
+  "${ModID}:HeatItUp": {
+    "NAME": "Heated Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Non-Bloon cards ."
+    ]
+  },  
+  "${ModID}:NatureShield": {
+    "NAME": "Nature Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain 2 Temp HP per phase"
+    ]
+  },  
+  "${ModID}:BloonShield": {
+    "NAME": "Nature Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, each enemy Last."
+    ]
+  },  
+  "${ModID}:PassiveAwesomeness": {
+    "NAME": "Rocky Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Fire"
+    ]
+  },
+  "${ModID}:CueBall": {
+    "NAME": "This is my little brother",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "When you play a Large Bloon, add a 1 charge Red Bloon into your hand."
+    ]
+  },
+  "${ModID}:Speederator": {
+    "NAME": "Bloon Speederator",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "When you play a Bloon, reduce its Health by 8 and its delay by 1"
+    ]
+  },  
+    "${ModID}:StrengthenorRelic": {
+    "NAME": "Bloon Strengthenor",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Your Bloons have +12 Health, but Bloons with less than 24 health cost +1 energy."
+    ]
+  },
+  "${ModID}:HealthBuff": {
+    "NAME": "Obstacle Course Champ Medal",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Raise your Max HP by 20%. If you lose this relic, lower your Max HP by 20%."
+    ]
+  },
+  "${ModID}:Ammo Cache": {
+    "NAME": "Ammo Cache",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Bloon cards can be used an extra time before Exhausting, but they lose the effect of Persist."
+    ]
+  },
+  "${ModID}:Ratchet": {
+    "NAME": "Rapid Reload Ratchet",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "When you play a Bloon with more than 2 delay, reduce its delay by 1 and lose 1 Energy."
+    ]
+  },
+  "${ModID}:Workshop": {
+    "NAME": "Miniature Workshop",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, draw 1 additional card."
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+package druidsurv.util.modifedclasses;
+
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
+
+import java.util.ArrayList;
+
+public class imClueless {
+
+    @SpirePatch2(clz = CardRewardScreen.class, method = "draftOpen")
+    public static class DraftFix {
+        @SpirePostfixPatch
+        public static void plz(CardRewardScreen __instance) {
+            boolean modifyStarters = false;
+            if (modifyStarters) {
+                for (AbstractCard c : __instance.rewardGroup) {
+                    rollCardAugment(c);
+                }
+            }
+        }
+    }
+
+    @SpirePatch2(clz = CardRewardScreen.class, method = "customCombatOpen")
+    public static class DiscoveryStyleCards {
+        @SpirePrefixPatch
+        public static void roll(ArrayList<AbstractCard> choices) {
+            boolean modifyInCombat = false;
+            if (modifyInCombat) {
+                for (AbstractCard c : choices) {
+                    rollCardAugment(c);
+                }
+            }
+        }
+    }
+
+    public static void rollCardAugment(AbstractCard c, int index) {
+        if (enableMods && !RolledModFieldPatches.RolledModField.rolled.get(c) && (commonWeight + uncommonWeight + rareWeight + rarityBias != 0)) {
+            for (int i = 0 ; i < rollAttempts ; i++) {
+                if (AbstractDungeon.miscRng.random(99) < modProbabilityPercent) {
+                    applyWeightedCardMod(c, rollRarity(c.rarity), index);
+                }
+            }
+        }
+        RolledModFieldPatches.RolledModField.rolled.set(c, true);
+    }
+}
+
+

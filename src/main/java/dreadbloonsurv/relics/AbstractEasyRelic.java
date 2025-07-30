@@ -7,8 +7,10 @@ import dreadbloonsurv.util.TexLoader;
 
 import static dreadbloonsurv.ModFile.makeRelicPath;
 import static dreadbloonsurv.ModFile.modID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 
 public abstract class AbstractEasyRelic extends CustomRelic {
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
     public AbstractCard.CardColor color;
 
     public AbstractEasyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {

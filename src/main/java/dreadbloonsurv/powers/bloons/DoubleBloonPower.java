@@ -7,11 +7,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 import static dreadbloonsurv.util.Wiz.atb;
 import static dreadbloonsurv.util.Wiz.removePower;
 
 public class DoubleBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("DoubleBloonPower");
+        public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 

@@ -19,19 +19,21 @@ public class SentinelBloonPower extends MustHitBloonPower {
 
         private static final boolean TURN_BASED = true;
 
-    public int damage = 5;
+    public int damage = 6;
 
-        public SentinelBloonPower(AbstractCreature owner, int delay, int health) {
+        public SentinelBloonPower(AbstractCreature owner, int delay, int health, int damage) {
             super(POWER_ID, owner, delay, health, 0, "Sentinel Bloon", false);
+            this.damage = damage;
         }
 
-    public SentinelBloonPower(AbstractCreature owner, int delay, int health, String name) {
+    public SentinelBloonPower(AbstractCreature owner, int delay, int health, int damage, String name) {
         super(POWER_ID, owner, delay, health, 0, "Sentinel Bloon", false);
+        this.damage = damage;
     }
-    public SentinelBloonPower(AbstractCreature owner, int delay, int health, int armor, String name, boolean immobile) {
+    public SentinelBloonPower(AbstractCreature owner, int delay, int health, int armor, String name, boolean immobile, int damage) {
         super(POWER_ID, owner, delay, health, armor, name, immobile);
+        this.damage = damage;
     }
-
 
     @Override
     public void atStartOfTurn()
@@ -59,6 +61,6 @@ public class SentinelBloonPower extends MustHitBloonPower {
 
     public AbstractPower makeCopy()
     {
-            return new SentinelBloonPower(this.owner, this.amount, this.amount2, this.amountArmor, this.name, this.immobile);
+            return new SentinelBloonPower(this.owner, this.amount, this.amount2, this.amountArmor, this.name, this.immobile, this.damage);
     }
 }

@@ -8,10 +8,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 import static dreadbloonsurv.util.Wiz.*;
 
 public class LeadCoatingBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("LeadCoatingBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 

@@ -4,9 +4,14 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 
 public class BasicBloonPower extends BaseBloon {
-        public static final String POWER_ID = makeID("BasicBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
+
+        public static String generatePowerID(Class<?> clazz) {
+            return makeID(clazz.getSimpleName());
+        }
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 

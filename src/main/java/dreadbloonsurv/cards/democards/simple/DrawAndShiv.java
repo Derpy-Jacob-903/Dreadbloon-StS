@@ -1,14 +1,17 @@
 package dreadbloonsurv.cards.democards.simple;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractEasyCard;
+import dreadbloonsurv.cards.colorless.bloons.RedBloon;
 
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.*;
 
+@AutoAdd.Ignore
 public class DrawAndShiv extends AbstractEasyCard {
     public final static String ID = makeID(DrawAndShiv.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 
@@ -20,7 +23,7 @@ public class DrawAndShiv extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(1)); // Add to the bottom of the action queue an action which draws 1 card.
-        makeInHand(new Shiv()); // Add to the bottom of the action queue an action which adds a Shiv into your hand. (This is shorthanded by makeInHand).
+        makeInHand(new RedBloon()); // Add to the bottom of the action queue an action which adds a Shiv into your hand. (This is shorthanded by makeInHand).
     }
 
     @Override

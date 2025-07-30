@@ -7,9 +7,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import dreadbloonsurv.cards.cardvars.CardTags;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 
 public class BolsteredBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("LeadCoatingBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 
@@ -34,7 +35,7 @@ public class BolsteredBloonPower extends BasicBloonPower {
         }
 
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card.hasTag(CardTags.BLOON)) { this.amount2 += magicNumber; }
+        if (card.hasTag(CardTags.BLOON_DREADMOD)) { this.amount2 += magicNumber; }
     }
 
     public AbstractPower makeCopy() {

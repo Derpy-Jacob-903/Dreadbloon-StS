@@ -9,9 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 
 public class VolatileBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("GiftBearerBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 

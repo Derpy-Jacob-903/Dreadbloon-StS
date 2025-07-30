@@ -1,12 +1,4 @@
 {
-  "${ModID}:Strike": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "${ModID}:Defend": {
-    "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
-  },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",
     "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
@@ -59,5 +51,280 @@
   "${ModID}:MultiCardPreviewAndDrawCallback": {
     "NAME": "Previews and Callbacks",
     "DESCRIPTION": "{@@}Shuffle *Smite{!Upgrades!|>0=+} and *Safety{!Upgrades!|>0=+} into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies."
+  },"${ModID}:Arbitr": {
+    "NAME": "ARBITR",
+    "DESCRIPTION": "Apply a ∞ Delay Bloon with 25 Health. Exhaust. Target will gain vigor instead of dealing damage until this Bloon is destroyed. Vigor has no effect on the target until this Bloon is destroyed."
+  },
+  "${ModID}:ArmorUp": {
+    "NAME": "Armor Up",
+    "DESCRIPTION": "Target's Highest Threat Bloon gains Armored 2 per Act."
+  },
+  "${ModID}:Armored": {
+    "NAME": "Armored",
+    "DESCRIPTION": "Gain 2 Armored, plus 1 Armored per Act."
+  },
+  "${ModID}:Avalanche": {
+    "NAME": "Avalanche",
+    "DESCRIPTION": "Retain. Exhaust. On Discard or Exhaust: Deal !D! damage per phase to ALL enemies."
+  },
+  "${ModID}:BedTime": {
+    "NAME": "Bed Time",
+    "DESCRIPTION": "Target enemy intending to not attack is stunned."
+  },
+  "${ModID}:BFB": {
+    "NAME": "BFB",
+    "DESCRIPTION": "Apply a 4 Delay Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:BloonEmbiggen": {
+    "NAME": "Bloon Embiggen",
+    "DESCRIPTION": "ALL Bloons gain 5 health."
+  },
+  "${ModID}:BloonReinforcements": {
+    "NAME": "Bloon Reinforcements!",
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile if no Basic Bloons are in your Draw Pile. Draw !M! random Basic Bloon from your Draw Pile."
+  },
+  "${ModID}:BloonRemovalTime": {
+    "NAME": "Bloon Removal Time",
+    "DESCRIPTION": "If any enemies intent to attack, gain !B! Block. Otherwise, gain 1 Energy."
+  },
+  "${ModID}:BloontoniumCache": {
+    "NAME": "Bloontonium Cache",
+    "DESCRIPTION": "Gain 🟪🟪."
+  },
+  "${ModID}:BloontoniumGasBloon": {
+    "NAME": "Bloontonium Gas Bloon",
+    "DESCRIPTION": "Apply a 4 Delay Bloon with !D! Health. Charges 2. On Damaged: You gain 🟪."
+  },
+  "${ModID}:BolsteredBloon": {
+    "NAME": "Bolstered Bloon",
+    "DESCRIPTION": "Apply a 3 Delay Bloon with !D! Health and 10 Shield. Exhaust. This Bloon gains 5 Health each time you play a Bloon."
+  },
+  "${ModID}:BombsAway": {
+    "NAME": "Bombs Away",
+    "DESCRIPTION": "Gain !B! Block. Persist 2."
+  },
+  "${ModID}:BoosterBloon": {
+    "NAME": "Booster Bloon",
+    "DESCRIPTION": "Draw a Booster Latch to your hand. Apply a 3 Delay Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:BoosterLatch": {
+    "NAME": "Booster Latch",
+    "DESCRIPTION": "Lowest Delay, Highest Health Bloon gains 1 delay and !D! Health. Multi-attack Bloons are prioritised."
+  },
+  "${ModID}:BringItDown": {
+    "NAME": "Bring it Down",
+    "DESCRIPTION": "Add a Rock Bloon to your hand. It costs 0 this turn. Shuffle a Avalanche into your draw pile per Act."
+  },
+  "${ModID}:BuddyBloon": {
+    "NAME": "Buddy Bloon",
+    "DESCRIPTION": "Apply a 3 Delay Bloon with !D! Health and 12 Shield. Exhaust. Target deals no damage to you until this Bloon is destroyed."
+  },
+  "${ModID}:Ceasefire": {
+    "NAME": "Ceasefire",
+    "DESCRIPTION": "All enemies can't attack. Exhaust."
+  },
+  "${ModID}:CeramicBloon": {
+    "NAME": "Ceramic Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:CrushingTime": {
+    "NAME": "Crushing Time",
+    "DESCRIPTION": "ALL Armored Bloons gain Armored 2 per Act."
+  },
+  "${ModID}:DoubleCeramicBloon": {
+    "NAME": "Double Ceramic Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Double Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:DoubleLeadBloon": {
+    "NAME": "Double Lead Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Double Bloon with !D! Health, Armored 2. Charges 2."
+  },
+  "${ModID}:DoubleYellowBloon": {
+    "NAME": "Double Yellow Bloon",
+    "DESCRIPTION": "Apply a 1 Delay Double Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:DreadShield": {
+    "NAME": "Dread Shield",
+    "DESCRIPTION": "Gain 150 Shield + 50 per Act."
+  },
+  "${ModID}:EchoesOfAvalanche": {
+    "NAME": "Echoes of Avalanche",
+    "DESCRIPTION": "Add an Avalanche card per Act to your hand."
+  },
+  "${ModID}:ExtractorBloon": {
+    "NAME": "Extractor Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health. Exhaust. When you deal damage: This Bloon gains 5 Health."
+  },
+  "${ModID}:FearfulAura": {
+    "NAME": "Fearful Aura",
+    "DESCRIPTION": "ALL Enemies loses 4(6) Strength for the rest of this turn."
+  },
+  "${ModID}:Fortify": {
+    "NAME": "Fortify",
+    "DESCRIPTION": "Lowest Delay, High Health Bloon gains 10 health. Multi-attack Bloons are prioritised."
+  },
+  "${ModID}:GlueShot": {
+    "NAME": "Glue Shot",
+    "DESCRIPTION": "Reduce target's Damage and Block gains by 25%."
+  },
+  "${ModID}:GlueStorm": {
+    "NAME": "Glue Storm",
+    "DESCRIPTION": "Reduce ALL creatures Damage and Block gains by 25%."
+  },
+  "${ModID}:GrowthGasBloon": {
+    "NAME": "Growth Gas Bloon",
+    "DESCRIPTION": "Apply a 5 Delay Bloon with !D! Health. Charges 2. On Damaged: All other Bloons gain 5 Health."
+  },
+  "${ModID}:Immunity": {
+    "NAME": "Immunity",
+    "DESCRIPTION": "Reduce ALL damage and HP loss you take to 1 for one turn. Cannot stack."
+  },
+  "${ModID}:ImprovedFortification": {
+    "NAME": "Improved Fortification",
+    "DESCRIPTION": "Lowest Delay, Highest Health Bloon gains 1 delay and 30 Health. Multi-attack Bloons are prioritised."
+  },
+  "${ModID}:LeadBloon": {
+    "NAME": "Lead Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health and Armored 2. Charges 2."
+  },
+  "${ModID}:LeadCasing": {
+    "NAME": "Lead Casing",
+    "DESCRIPTION": "Lowest Delay, Highest Health Bloon gains Armored 4. Multi-attack Bloons are prioritised."
+  },
+  "${ModID}:LeadCoatingBloon": {
+    "NAME": "Lead Coating Bloon",
+    "DESCRIPTION": "Apply a 3 Delay Bloon with !D! Health and Armored 6. Exhaust."
+  },
+  "${ModID}:LeadZeppelin": {
+    "NAME": "Lead Zeppelin",
+    "DESCRIPTION": "Apply a 5 Delay Bloon with !D! Health and Armored 4. Exhaust."
+  },
+  "${ModID}:Leer": {
+    "NAME": "Leer",
+    "DESCRIPTION": "If target is Weakened, Reduce target's Dexterity by 1. Otherwise, apply 1 Weak."
+  },
+  "${ModID}:LetUsRock": {
+    "NAME": "Let's Rock!",
+    "DESCRIPTION": "Add a Rock Bloon to your hand. It gains Armored 1 per Act and costs 0 this turn."
+  },
+  "${ModID}:MassLeadProduction": {
+    "NAME": "Mass Lead Production",
+    "DESCRIPTION": "ALL Bloons gain Armored 3."
+  },
+  "${ModID}:MOAB": {
+    "NAME": "MOAB",
+    "DESCRIPTION": "Apply a 4 Delay Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:MonkeyRemovalTime": {
+    "NAME": "Monkey Removal Time",
+    "DESCRIPTION": "If no enemies intent to attack, Add 1 Lead Zeppelin to your hand. It costs 0 this turn. Otherwise, gain !B! Block."
+  },
+  "${ModID}:MoreCardsNow": {
+    "NAME": "More Cards Now!",
+    "DESCRIPTION": "Scry 3. Draw a card for each Act."
+  },
+  "${ModID}:NestedBlue": {
+    "NAME": "Nested Blue",
+    "DESCRIPTION": "Apply a 1 Delay Bloon with !D! Health. Exhaust. When this Bloon is destroyed, play a Red Bloon."
+  },
+  "${ModID}:NestedGreen": {
+    "NAME": "Nested Green",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health. Exhaust. When this Bloon is destroyed, play a Nested Blue."
+  },
+  "${ModID}:NestedYellow": {
+    "NAME": "Nested Yellow",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health. Charges 2. When this Bloon is destroyed, play a Nested Green"
+  },
+  "${ModID}:PreemptiveStrike": {
+    "NAME": "Pre-emptive Strike",
+    "DESCRIPTION": "At the start of your turn: If any enemy intending to attack, apply X Bloon Removal to random enemy intending to attack."
+  },
+  "${ModID}:RedBloon": {
+    "NAME": "Red Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health. Exhaust."
+  },
+  "${ModID}:Repercussions": {
+    "NAME": "Repercussions",
+    "DESCRIPTION": "Exhaust a card in your hand. Deal 7 damage for each Energy or 🟪 that card costs to ALL enemies."
+  },
+  "${ModID}:ReturnToSender": {
+    "NAME": "Return to Sender",
+    "DESCRIPTION": "Draw a Bloon from your discard pile."
+  },
+  "${ModID}:RockBloon": {
+    "NAME": "Rock Bloon",
+    "DESCRIPTION": "Apply a 3 Delay Bloon with 9 Health. Exhaust. When this Bloon's target attacks, you gain Block equal to either the attack's damage, or this Bloon's Health, whichever is lesser."
+  },
+  "${ModID}:RockPopAndAwe": {
+    "NAME": "Rock, Pop and Awe",
+    "DESCRIPTION": "Add a Rock Bloon to your hand. It costs 0 this turn. Odd turns: Deal 4 damage per Act. Even turns: Reduce target's Strength by 1 per Act."
+  },
+  "${ModID}:Rumble": {
+    "NAME": "Rumble",
+    "DESCRIPTION": "Reduce target's Strength by 1."
+  },
+  "${ModID}:ShieldsUp": {
+    "NAME": "Shields Up",
+    "DESCRIPTION": "Upgrade a random Ability in your draw pile per Act. Gain 50 Mana Shield."
+  },
+  "${ModID}:Shrink": {
+    "NAME": "Shrink",
+    "DESCRIPTION": "Gain !B! Block. Exhaust."
+  },
+  "${ModID}:SignalBloon": {
+    "NAME": "Signal Bloon",
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile if no Large Bloons are in your Draw Pile. Draw a random Large Bloon from your Draw Pile. Apply a 2 Delay Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:Skim": {
+    "NAME": "Skim",
+    "DESCRIPTION": "Draw 3 cards."
+  },
+  "${ModID}:SlowingBloon": {
+    "NAME": "Slowing Bloon",
+    "DESCRIPTION": "Draw a Glue Shot to your hand. Apply a 3 Delay Bloon with !D! Health. Charges 2."
+  },
+  "${ModID}:SteadyGrowthBloon": {
+    "NAME": "Steady Growth Bloon",
+    "DESCRIPTION": "Apply a 3 Delay Bloon with !D! Health. Charges 2. On Turn Start: This Bloon gains 5 Health."
+  },
+  "${ModID}:Strengthenator": {
+    "NAME": "Strengthenator",
+    "DESCRIPTION": "Apply a ∞ Delay Bloon with !D! Health. Exhaust. On Turn Start: All Bloons gains 4 Health."
+  },
+  "${ModID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${ModID}:StunGasBloon": {
+    "NAME": "Stun Gas Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Bloon with !D! Health. Charges 2. On Damaged: Apply 1 Frail and 1 Weak to the attacker."
+  },
+  "${ModID}:Stunned": {
+    "NAME": "Stunned",
+    "DESCRIPTION": "Target enemy is stunned. Exhaust."
+  },
+  "${ModID}:SwarmYellowBloon": {
+    "NAME": "Swarm Yellow Bloon",
+    "DESCRIPTION": "Apply a 1 Delay Bloon with !D! Health. Charges 3."
+  },
+  "${ModID}:TargetPracticeBlimp": {
+    "NAME": "Target Practice Blimp",
+    "DESCRIPTION": "Apply a ∞ Delay Bloon with !B! Health. Exhaust. When this Bloon's target attacks, you gain Block equal to either the attack's damage, or this Bloon's Health, whichever is lesser."
+  },
+  "${ModID}:ToxicBloon": {
+    "NAME": "Toxic Bloon",
+    "DESCRIPTION": "Apply a 3 Delay Bloon with !D! Health. On Leak: Apply !M! Poison"
+  },
+  "${ModID}:TripleThreatBloon": {
+    "NAME": "Triple Threat Bloon",
+    "DESCRIPTION": "Apply a 2 Delay Triple Bloon with !D! Health, !B! Shield. When you play a power, this Bloon gains 4 Shield."
+  },
+  "${ModID}:WrathOfDread": {
+    "NAME": "Wrath of Dread",
+    "DESCRIPTION": "Gain !B! Block for each enemy intending to attack."
+  },
+  "${ModID}:ZOMG": {
+    "NAME": "ZOMG",
+    "DESCRIPTION": "Apply a 5 Delay Bloon with !D! Health. Exhaust."
   }
 }

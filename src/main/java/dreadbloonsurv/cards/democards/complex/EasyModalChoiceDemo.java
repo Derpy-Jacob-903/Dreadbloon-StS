@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.democards.complex;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.*;
 
+@AutoAdd.Ignore
 public class EasyModalChoiceDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyModalChoiceDemo.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 

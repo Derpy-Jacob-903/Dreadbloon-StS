@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.democards.complex;
 
+import basemod.AutoAdd;
 import basemod.cardmods.EtherealMod;
 import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.*;
 
+@AutoAdd.Ignore
 public class SelectCardsPlusCardMods extends AbstractEasyCard {
 
     public final static String ID = makeID(SelectCardsPlusCardMods.class.getSimpleName());

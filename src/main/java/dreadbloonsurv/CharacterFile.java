@@ -18,17 +18,17 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import dreadbloonsurv.cards.Defend;
-import dreadbloonsurv.cards.Leer;
-import dreadbloonsurv.cards.Rumble;
-import dreadbloonsurv.cards.Strike;
-import dreadbloonsurv.cards.bloons.RockBloon;
-import dreadbloonsurv.powers.bloons.LeadCoatingBloonPower;
-import dreadbloonsurv.relics.TodoItem;
+import dreadbloonsurv.cards.dreadbloon.Defend;
+import dreadbloonsurv.cards.dreadbloon.Leer;
+import dreadbloonsurv.cards.dreadbloon.Rumble;
+import dreadbloonsurv.cards.dreadbloon.Strike;
+import dreadbloonsurv.cards.colorless.bloons.RockBloon;
+import dreadbloonsurv.cards.colorless.bloons.SentinelBloon;
+import dreadbloonsurv.relics.DreadStarter;
 
 import java.util.ArrayList;
 
-import static dreadbloonsurv.CharacterFile.Enums.DREADBLOON_COLOR;
+import static dreadbloonsurv.ModFile.Enums.DREADBLOON_COLOR;
 import static dreadbloonsurv.ModFile.*;
 
 public class CharacterFile extends CustomPlayer {
@@ -63,8 +63,11 @@ public class CharacterFile extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             retVal.add(Strike.ID);
+        }
+        for (int i = 0; i < 4; i++) {
+            retVal.add(Defend.ID);
         }
         for (int i = 0; i < 1; i++) {
             retVal.add(Rumble.ID);
@@ -72,18 +75,18 @@ public class CharacterFile extends CustomPlayer {
         for (int i = 0; i < 1; i++) {
             retVal.add(Leer.ID);
         }
-        for (int i = 0; i < 4; i++) {
-            retVal.add(Defend.ID);
-        }
         for (int i = 0; i < 2; i++) {
             retVal.add(RockBloon.ID);
+        }
+        for (int i = 0; i < 1; i++) {
+            retVal.add(SentinelBloon.ID);
         }
         return retVal;
     }
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(DreadStarter.ID);
         return retVal;
     }
 
@@ -180,57 +183,5 @@ public class CharacterFile extends CustomPlayer {
     @Override
     public String getVampireText() {
         return TEXT[2];
-    }
-
-    public static class Enums {
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass DREADBLOON;
-        @SpireEnum(name = "DREADBLOON_COLOR")
-        public static AbstractCard.CardColor DREADBLOON_COLOR;
-        @SpireEnum(name = "DREADBLOON_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR;
-
-        /*
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass BLOONARIUS;
-        @SpireEnum(name = "BLOONARIUS_COLOR")
-        public static AbstractCard.CardColor BLOONARIUS_COLOR;
-        @SpireEnum(name = "BLOONARIUS_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR_BLOONARIUS;
-
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass LYCH;
-        @SpireEnum(name = "LYCH_COLOR")
-        public static AbstractCard.CardColor LYCH_COLOR;
-        @SpireEnum(name = "LYCH_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR_LYCH;
-
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass VORTEX;
-        @SpireEnum(name = "VORTEX_COLOR")
-        public static AbstractCard.CardColor VORTEX_COLOR;
-        @SpireEnum(name = "VORTEX_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR_VORTEX;
-
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass PHAYZE;
-        @SpireEnum(name = "PHAYZE_COLOR")
-        public static AbstractCard.CardColor PHAYZE_COLOR;
-        @SpireEnum(name = "PHAYZE_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR_PHAYZE;
-
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass BLASTAPOPOULOS;
-        @SpireEnum(name = "BLASTAPOPOULOS_COLOR")
-        public static AbstractCard.CardColor BLASTAPOPOULOS_COLOR;
-        @SpireEnum(name = "BLASTAPOPOULOS_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR_BLASTAPOPOULOS;
-        */
     }
 }

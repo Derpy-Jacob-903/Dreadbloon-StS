@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.democards.complex;
 
+import basemod.AutoAdd;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.*;
 
+@AutoAdd.Ignore
 public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
     public final static String ID = makeID(MultiCardPreviewAndDrawCallback.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,

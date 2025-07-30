@@ -21,13 +21,37 @@ import java.util.function.Consumer;
 
 import dreadbloonsurv.CharacterFile;
 import dreadbloonsurv.powers.BloontoniumPower;
+import dreadbloonsurv.powers.bloons.DoubleBloonPower;
+import dreadbloonsurv.relics.PickleJar;
+import dreadbloonsurv.relics.Ratchet;
+import dreadbloonsurv.relics.SpeederatorRelic;
+import dreadbloonsurv.relics.StrengthenorRelic;
 import dreadbloonsurv.util.CardArtRoller;
 
-import static dreadbloonsurv.ModFile.makeImagePath;
-import static dreadbloonsurv.ModFile.modID;
+import static dreadbloonsurv.ModFile.*;
 import static dreadbloonsurv.util.Wiz.*;
 
 public abstract class AbstractEasyCard extends CustomCard {
+
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
+    public static String autoID(Class<?> clazz) {
+        return makeID(clazz.getSimpleName());
+    }
+
+    public static String autoID(Class<?> clazz, CardColor cardColor, CharacterFile.) {
+        String a = "";
+        switch (cardColor)
+        {
+            case RED: a = "_R"; break;
+            case GREEN: a = "_G"; break;
+            case BLUE: a = "_B"; break;
+            case PURPLE: a = "_W"; break;
+        }
+        switch ()
+        
+        
+        return makeID(clazz.getSimpleName() + a);
+    }
 
     protected final CardStrings cardStrings;
 
@@ -50,15 +74,17 @@ public abstract class AbstractEasyCard extends CustomCard {
     public int baseDelay;
     public boolean upgradedDelay;
     public boolean isDelayModified;
+    public String bloonName = "Null Bloon";
+
 
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, CharacterFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final String cardArt) {
-        this(cardID, cost, type, rarity, target, CharacterFile.Enums.DREADBLOON_COLOR, cardArt);
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardArt);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
@@ -102,17 +128,32 @@ public abstract class AbstractEasyCard extends CustomCard {
         MOX
     }
 
-    public void setCardBack(cardSubType subType)
-    { setCardBack(this, subType, false); }
+    public enum moxColors
+    {
+        //this is for PROVIDE
+        GREEN,
+        RUBY,
+        BLUE,
+        COLORLESS, //Descryption Black Mox?
+        DRAGON, //Multiple Mox
+        RAINBOW, //Prism Mox
+        PURPLE,
+        RED,
+        YELLOW,
+        BLACK
+    }
 
-    public void setCardBack(cardSubType subType, boolean isMox)
-    { setCardBack(this, subType, false); }
+    public void setCardBack(cardSubType subType)
+    { setCardBack(this, subType, moxColors.COLORLESS); }
+
+    public void setCardBack(cardSubType subType, moxColors moxColor)
+    { setCardBack(this, subType, moxColor); }
 
     public void setCardBack(final AbstractCard card, cardSubType subType)
-    { setCardBack(card, subType, false); }
+    { setCardBack(card, subType, moxColors.COLORLESS); }
 
     /// sets
-    public void setCardBack(final AbstractCard card, cardSubType subType, boolean isMox) {
+    public void setCardBack(final AbstractCard card, cardSubType subType, moxColors moxColor) {
         String aString;
         String bString;
 
@@ -143,9 +184,22 @@ public abstract class AbstractEasyCard extends CustomCard {
                 break;
             case MOX:
                 aString = "mox"; bString = ".png";
-                //if (card.rarity == CardRarity.RARE)
-                //{ bString = "_common.png"; }
-                //else { bString = "_rare.png"; }
+                switch (moxColor) {
+                    case GREEN: bString = "_green.png";
+                        break;
+                    case RUBY: bString = "_ruby.png";
+                        break;
+                    case BLUE: bString = "_blue.png";
+                        break;
+                    case DRAGON: bString = "_dragon.png";
+                        break;
+                    case COLORLESS: bString = "_purple.png";
+                        break;
+                    case RAINBOW: bString = "_colorless.png";
+                        break;
+                    default: bString = "_black.png";
+                        break;
+                }
                 break;
             case ARTIFACT:
             default:
@@ -180,17 +234,16 @@ public abstract class AbstractEasyCard extends CustomCard {
         String textureString;
         switch (cardType) {
             case ATTACK:
-                textureString = makeImagePath("cards/Attacks/" + cardArt + ".png");
+                textureString = makeImagePath("CardArt/Attacks/" + cardArt + ".png");
                 break;
             case POWER:
-                textureString = makeImagePath("cards/Powers/" + cardArt + ".png");
+                textureString = makeImagePath("CardArt/Powers/" + cardArt + ".png");
                 break;
             case SKILL:
             default:
-                textureString = makeImagePath("cards/Skills/" + cardArt + ".png");
+                textureString = makeImagePath("CardArt/Skills/" + cardArt + ".png");
                 break;
         }
-
         FileHandle h = Gdx.files.internal(textureString);
         if (!h.exists()) {
             textureString = makeImagePath("ui/missing.png");
@@ -242,6 +295,8 @@ public abstract class AbstractEasyCard extends CustomCard {
         isSecondMagicModified = false;
         secondDamage = baseSecondDamage;
         isSecondDamageModified = false;
+        delay = baseSecondDamage;
+        isDelayModified = false;
     }
 
     public void displayUpgrades() {
@@ -266,6 +321,12 @@ public abstract class AbstractEasyCard extends CustomCard {
         baseSecondDamage += amount;
         secondDamage = baseSecondDamage;
         upgradedSecondDamage = true;
+    }
+
+    protected void upgradeDelay(int amount) {
+        baseDelay += amount;
+        delay = baseDelay;
+        upgradedDelay = true;
     }
 
     protected void uDesc() {
@@ -297,6 +358,7 @@ public abstract class AbstractEasyCard extends CustomCard {
             AbstractEasyCard c = (AbstractEasyCard) result;
             c.baseSecondDamage = c.secondDamage = baseSecondDamage;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
+            c.baseDelay = c.delay = baseDelay;
         }
         return result;
     }
@@ -374,6 +436,24 @@ public abstract class AbstractEasyCard extends CustomCard {
     protected void bloonton() {
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BloontoniumPower(AbstractDungeon.player, costForTurn), costForTurn));
         //atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block*costForTurn));
+    }
+
+    protected void bloonton(int mod) {
+        atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BloontoniumPower(AbstractDungeon.player, costForTurn - mod), costForTurn - mod));
+        //atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block*costForTurn));
+    }
+
+
+    /**
+     *
+     */
+    protected void commonBloonMods() {
+        this.resetAttributes();
+        if (p().hasRelic(PickleJar.ID)) { baseDamage += 7; baseDelay = Math.max(delay + 1, 0);}
+        if (p().hasRelic(Ratchet.ID) && baseDelay > 1) { baseDelay = Math.max(delay - 1, 1); if (cost >= 0){cost += 1;}}
+        if (p().hasRelic(SpeederatorRelic.ID)) { baseDelay = Math.max(delay - 1, 0);}
+        if (p().hasRelic(StrengthenorRelic.ID)) { baseDamage += 6;}
+        if (p().hasRelic(SpeederatorRelic.ID) && !p().hasRelic(StrengthenorRelic.ID)) { baseDamage -= 5;}
     }
 
     protected void bloonBlck2() {

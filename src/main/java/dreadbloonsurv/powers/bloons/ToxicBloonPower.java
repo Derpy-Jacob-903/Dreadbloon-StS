@@ -9,11 +9,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 import static dreadbloonsurv.util.Wiz.atb;
 import static dreadbloonsurv.util.Wiz.removePower;
 
 public class ToxicBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("ToxicBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 

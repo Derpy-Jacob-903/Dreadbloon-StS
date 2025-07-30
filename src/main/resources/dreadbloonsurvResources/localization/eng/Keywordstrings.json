@@ -1,10 +1,9 @@
 [
-  {
-    "PROPER_NAME": "TODO",
-    "NAMES": [
-      "todo",
-      "todos"
-    ],
-    "DESCRIPTION": "TODO: Make your own epic keywords"
+    {
+     "PROPER_NAME": "Bloon",
+     "NAMES": [
+       "bloon"
+     ],
+     "DESCRIPTION": "Deals damage after a delay. Damage dealt and Block gained by the target before this hits reduces the damage."
   }
 ]

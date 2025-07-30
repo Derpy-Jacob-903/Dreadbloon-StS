@@ -163,25 +163,15 @@ public abstract class AbstractEasyPower extends AbstractPower {
     }
 
     public void renderAmountNew(SpriteBatch sb, float x, float y, Color c) {
-        if (!this.immobile) {super.renderAmount(sb, x, y, c);}
-        if (this.amount > 0) {
-            if (!this.isTurnBased) {
-                greenColor.a = c.a;
-                c = this.greenColor;
-            }
-            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, "∞", x, y, this.fontScale, c);
-        } else if (this.amount < 0 && this.canGoNegative) {
-            this.redColor.a = c.a;
-            c = this.redColor;
-            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, "∞", x, y, this.fontScale, c);
-        }
-
+        if (!this.immobile) { super.renderAmount(sb, x, y, c);}
+        else {FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, "∞", x, y, this.fontScale, c); }
     }
 
     public void renderShield(SpriteBatch sb, float x, float y, Color c) {
         if (!isTwoAmount)
             return;
         Texture normalTexture = TexLoader.getTexture(ModFile.modID + "Resources/images/powers/" + "BasicBloonPowerShield32.png");
+        sb.draw(normalTexture, x - (float)normalTexture.getWidth() / 2.0F, y - (float)normalTexture.getHeight() / 2.0F, (float)normalTexture.getWidth() / 2.0F, (float)normalTexture.getHeight() / 2.0F, (float)normalTexture.getWidth(), (float)normalTexture.getHeight(), Settings.scale, Settings.scale);
         if (amount2 > 0) {
             if (!isTurnBased) {
                 greenColor2.a = c.a;

@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.democards.complex;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,6 +14,7 @@ import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.applyToSelf;
 import static dreadbloonsurv.util.Wiz.atb;
 
+@AutoAdd.Ignore
 public class InlinePowerDemo extends AbstractEasyCard {
     public final static String ID = makeID(InlinePowerDemo.class.getSimpleName());
     // intellij stuff power, self, uncommon

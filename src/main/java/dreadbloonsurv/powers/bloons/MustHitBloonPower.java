@@ -10,10 +10,11 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 import static dreadbloonsurv.util.Wiz.*;
 
 public class MustHitBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("MustHitBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 

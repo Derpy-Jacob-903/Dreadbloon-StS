@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.democards.simple;
 
+import basemod.AutoAdd;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.atb;
 
+@AutoAdd.Ignore
 public class StartupBlockCard extends AbstractEasyCard implements StartupCard { // This card implements StartupCard, an extra 'type' of card that adds the ability to trigger at the start of combat.
     public final static String ID = makeID(StartupBlockCard.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,

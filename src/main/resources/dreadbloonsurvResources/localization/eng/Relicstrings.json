@@ -6,46 +6,18 @@
       "Has no effect."
     ]
   },
-  "${ModID}:RockyDeck": {
+  "${ModID}:DreadStarter": {
     "NAME": "Rocky Deck",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "At the start of your turn, add a Rock Bloon to your hand. It costs 0 [${ModID}:BloontoniumIcon]"
-    ]
-  },
-  "${ModID}:PerceptiveShot": {
-    "NAME": "Archer Deck",
-    "FLAVOR": "TODO: make this a sweet relic.",
-    "DESCRIPTIONS": [
-      "When you play a Bloon, deal 2 damage per Act to its target."
-    ]
-  },
-  "${ModID}:HeatItUp": {
-    "NAME": "Heated Deck",
-    "FLAVOR": "TODO: make this a sweet relic.",
-    "DESCRIPTIONS": [
-      "Non-Bloon cards ."
+      "At the start of your turn, add a Rock Bloon to your hand. It costs 0."
     ]
   },  
-  "${ModID}:NatureShield": {
-    "NAME": "Nature Deck",
+"${ModID}:DreadStarterUpgrade": {
+    "NAME": "Sentinel Deck",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain 2 Temp HP per phase"
-    ]
-  },  
-  "${ModID}:BloonShield": {
-    "NAME": "Nature Deck",
-    "FLAVOR": "TODO: make this a sweet relic.",
-    "DESCRIPTIONS": [
-      "At the end of your turn, each enemy Last."
-    ]
-  },  
-  "${ModID}:PassiveAwesomeness": {
-    "NAME": "Rocky Deck",
-    "FLAVOR": "TODO: make this a sweet relic.",
-    "DESCRIPTIONS": [
-      "Fire"
+      "At the start of your turn, add a Sentinel Bloon to your hand. It costs 1 less."
     ]
   },
   "${ModID}:CueBall": {
@@ -55,7 +27,7 @@
       "When you play a Large Bloon, add a 1 charge Red Bloon into your hand."
     ]
   },
-  "${ModID}:Speederator": {
+  "${ModID}:SpeederatorRelic": {
     "NAME": "Bloon Speederator",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
@@ -73,7 +45,7 @@
     "NAME": "Obstacle Course Champ Medal",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "Raise your Max HP by 20%. If you lose this relic, lower your Max HP by 20%."
+      "Raise your Max HP by 20% at the start each act."
     ]
   },
   "${ModID}:Ammo Cache": {
@@ -87,7 +59,7 @@
     "NAME": "Rapid Reload Ratchet",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "When you play a Bloon with more than 2 delay, reduce its delay by 1 and lose 1 Energy."
+      "Bloons with more than 1 delay have their delay reduced by 1, but they cost 1 more energy."
     ]
   },
   "${ModID}:Workshop": {
@@ -95,6 +67,20 @@
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
       "At the start of each combat, draw 1 additional card."
+    ]
+  },
+  "${ModID}:PickleJar": {
+    "NAME": "Jar of Pickles",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Bloons gain 7 damage, but gain 1 delay."
+    ]
+  },
+  "${ModID}:SharpeningStone": {
+    "NAME": "Sharpening Stone",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "Basic Bloons gain 5 damage."
     ]
   }
 }

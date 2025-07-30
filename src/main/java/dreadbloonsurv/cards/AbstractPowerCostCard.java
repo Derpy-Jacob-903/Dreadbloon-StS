@@ -2,7 +2,6 @@ package dreadbloonsurv.cards;
 
 import basemod.AutoAdd;
 import basemod.interfaces.AlternateCardCostModifier;
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.AlternateCardCosts;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,17 +16,17 @@ import static dreadbloonsurv.ModFile.modID;
 
 @AutoAdd.Ignore
 public abstract class AbstractPowerCostCard extends AbstractEasyCard implements AlternateCardCostModifier {
-    public final static String ID = makeID("AbstractPowerCostCard");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
     public String PowerCostId;
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public AbstractPowerCostCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, CharacterFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
         PowerCostId = BloontoniumPower.POWER_ID;
     }
 
     public AbstractPowerCostCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final String cardArt) {
-        this(cardID, cost, type, rarity, target, CharacterFile.Enums.DREADBLOON_COLOR, cardArt);
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardArt);
         PowerCostId = BloontoniumPower.POWER_ID;
     }
 
@@ -56,7 +55,7 @@ public abstract class AbstractPowerCostCard extends AbstractEasyCard implements 
 
     @Override
     public int getAlternateResource(AbstractCard abstractCard) {
-        if (abstractCard == this && abstractCard instanceof AbstractPowerCostCard)
+        if (abstractCard == this)
         {
             if (AbstractDungeon.player.hasPower(((AbstractPowerCostCard)abstractCard).PowerCostId)) {
                 return AbstractDungeon.player.getPower(((AbstractPowerCostCard)abstractCard).PowerCostId).amount;

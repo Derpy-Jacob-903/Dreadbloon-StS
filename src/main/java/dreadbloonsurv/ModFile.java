@@ -9,9 +9,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
@@ -77,7 +81,7 @@ public class ModFile implements
     public ModFile() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(CharacterFile.Enums.DREADBLOON_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(ModFile.Enums.DREADBLOON_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -115,8 +119,8 @@ public class ModFile implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], CharacterFile.Enums.DREADBLOON),
-            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, CharacterFile.Enums.DREADBLOON);
+        BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], ModFile.Enums.DREADBLOON),
+            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.DREADBLOON);
         
         new AutoAdd(modID)
             .packageFilter(AbstractEasyPotion.class)
@@ -185,5 +189,57 @@ public class ModFile implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    public static class Enums {
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass DREADBLOON;
+        @SpireEnum(name = "DREADBLOON_COLOR")
+        public static AbstractCard.CardColor DREADBLOON_COLOR;
+        @SpireEnum(name = "DREADBLOON_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR;
+
+        /*
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass BLOONARIUS;
+        @SpireEnum(name = "BLOONARIUS_COLOR")
+        public static AbstractCard.CardColor BLOONARIUS_COLOR;
+        @SpireEnum(name = "BLOONARIUS_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR_BLOONARIUS;
+
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass LYCH;
+        @SpireEnum(name = "LYCH_COLOR")
+        public static AbstractCard.CardColor LYCH_COLOR;
+        @SpireEnum(name = "LYCH_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR_LYCH;
+
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass VORTEX;
+        @SpireEnum(name = "VORTEX_COLOR")
+        public static AbstractCard.CardColor VORTEX_COLOR;
+        @SpireEnum(name = "VORTEX_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR_VORTEX;
+
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass PHAYZE;
+        @SpireEnum(name = "PHAYZE_COLOR")
+        public static AbstractCard.CardColor PHAYZE_COLOR;
+        @SpireEnum(name = "PHAYZE_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR_PHAYZE;
+
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass BLASTAPOPOULOS;
+        @SpireEnum(name = "BLASTAPOPOULOS_COLOR")
+        public static AbstractCard.CardColor BLASTAPOPOULOS_COLOR;
+        @SpireEnum(name = "BLASTAPOPOULOS_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR_BLASTAPOPOULOS;
+        */
     }
 }

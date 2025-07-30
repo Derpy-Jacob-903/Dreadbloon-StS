@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.democards.complex;
 
+import basemod.AutoAdd;
 import dreadbloonsurv.actions.EasyXCostAction;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -11,6 +12,7 @@ import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.applyToSelfTop;
 import static dreadbloonsurv.util.Wiz.atb;
 
+@AutoAdd.Ignore
 public class EasyXCostDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyXCostDemo.class.getSimpleName());
     // intellij stuff attack, enemy, rare, , , , , 0, 1

@@ -9,11 +9,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import dreadbloonsurv.cards.cardvars.CardTags;
 
 import static dreadbloonsurv.ModFile.makeID;
+import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 import static dreadbloonsurv.util.Wiz.atb;
 import static dreadbloonsurv.util.Wiz.removePower;
 
 public class TripleThreatBloonPower extends BasicBloonPower {
-        public static final String POWER_ID = makeID("TripleThreatBloonPower");
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
 
@@ -56,7 +57,7 @@ public class TripleThreatBloonPower extends BasicBloonPower {
         }
 
         public void onAfterCardPlayed(AbstractCard usedCard) {
-            if (usedCard.hasTag(CardTags.BCSPOWER))
+            if (usedCard.hasTag(CardTags.POWER_DREADMOD))
             {
                 this.amountShield += 6;
             };

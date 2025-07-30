@@ -1,13 +1,80 @@
 {
-  "${ModID}:ModdedCharacter": {
+  "${ModID}:Dreadbloon": {
     "NAMES": [
-      "The Todo",
-      "the Todo"
+      "The Armored Behemoth",
+      "the Armored Behemoth"
     ],
     "TEXT": [
       "An unfinished creation, waiting for an expert to fill the canvas.",
       "NL TODO: Change this text",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+"${ModID}:Scrapborn": {
+    "NAMES": [
+      "The Scrapborn",
+      "the Scrapborn"
+    ],
+    "TEXT": [
+      "An unfinished creation, waiting for an expert to fill the canvas.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~broken ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+"${ModID}:Bloonarius": {
+    "NAMES": [
+      "The Inflator",
+      "the Inflator"
+    ],
+    "TEXT": [
+      "An unfinished creation, waiting for an expert to fill the canvas.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+"${ModID}:Lych": {
+    "NAMES": [
+      "The Gravelord",
+      "the Gravelord"
+    ],
+    "TEXT": [
+      "An unfinished creation, waiting for an expert to fill the canvas.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+"${ModID}:Vortex": {
+    "NAMES": [
+      "The Deadly Master of Air",
+      "the Deadly Master of Air"
+    ],
+    "TEXT": [
+      "An unfinished creation, waiting for an expert to fill the canvas.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+"${ModID}:Phayze": {
+    "NAMES": [
+      "The Reality Warper",
+      "the Reality Warper"
+    ],
+    "TEXT": [
+      "An unfinished creation, waiting for an expert to fill the canvas.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+
+"${ModID}:Blasta": {
+    "NAMES": [
+      "The Demon of the Core",
+      "the Demon of the Core"
+    ],
+    "TEXT": [
+      "An unfinished creation, waiting for an expert to fill the canvas.",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ]
   }
 }

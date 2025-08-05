@@ -23,7 +23,7 @@ public class OnFire extends AbstractEasyPower implements HealthBarRenderPower {
 
     public void atStartOfTurn()
         {
-            addToBot((AbstractGameAction)new LoseHPAction(this.owner, this.owner, this.amount, AbstractGameAction.AttackEffect.FIRE));
+            addToBot(new LoseHPAction(this.owner, this.owner, this.amount, AbstractGameAction.AttackEffect.FIRE));
         }
 
         public void updateDescription()

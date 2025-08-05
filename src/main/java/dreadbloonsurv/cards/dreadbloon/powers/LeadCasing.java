@@ -3,7 +3,7 @@ package dreadbloonsurv.cards.dreadbloon.powers;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.powers.bloons.BaseBloon;
 import dreadbloonsurv.powers.bloons.DoubleBloonPower;
@@ -14,7 +14,7 @@ public class LeadCasing extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public LeadCasing() {
-        super(ID,1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREADBLOON_COLOR, "Fortify_CardArt");
+        super(ID,1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREAD_COLOR, "Fortify_CardArt");
         baseMagicNumber = 2;
         magicNumber = baseMagicNumber;
         exhaust = true;

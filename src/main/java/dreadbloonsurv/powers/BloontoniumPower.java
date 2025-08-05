@@ -20,7 +20,7 @@ public class BloontoniumPower extends AbstractEasyPower {
             this.amount = 6;
         if (this.amount <= 0)
             this.amount = 6;
-    }
+        }
 
         public BloontoniumPower(AbstractCreature owner, int amount) {
             super(POWER_ID, "Bloontonium", TYPE, false, owner, amount);

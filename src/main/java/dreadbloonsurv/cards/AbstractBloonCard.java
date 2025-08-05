@@ -1,17 +1,12 @@
 package dreadbloonsurv.cards;
 
 import basemod.AutoAdd;
-import basemod.interfaces.AlternateCardCostModifier;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import dreadbloonsurv.CharacterFile;
-import dreadbloonsurv.powers.BloontoniumPower;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.powers.bloons.BasicBloonPower;
 
 import static dreadbloonsurv.ModFile.makeID;
@@ -24,11 +19,11 @@ public abstract class AbstractBloonCard extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public AbstractBloonCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREAD_COLOR, cardID.replace(modID + ":", ""));
     }
 
     public AbstractBloonCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final String cardArt) {
-        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardArt);
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREAD_COLOR, cardArt);
     }
 
     public AbstractBloonCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
@@ -62,7 +57,7 @@ public abstract class AbstractBloonCard extends AbstractEasyCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster)
     {
         //i want to change new `BasicBloonPower` without having to write all this out
-        addToBot((AbstractGameAction)new ApplyPowerAction(abstractMonster, abstractPlayer, new BasicBloonPower(abstractMonster, delay, damage, secondMagic, secondMagic, bloonName), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer, new BasicBloonPower(abstractMonster, delay, damage, secondMagic, secondMagic, bloonName), 1, true, AbstractGameAction.AttackEffect.NONE));
         bloonton();
     }
 

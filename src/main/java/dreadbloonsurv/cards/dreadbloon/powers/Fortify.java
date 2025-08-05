@@ -3,28 +3,26 @@ package dreadbloonsurv.cards.dreadbloon.powers;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.powers.bloons.BaseBloon;
 import dreadbloonsurv.powers.bloons.DoubleBloonPower;
 import dreadbloonsurv.powers.bloons.TripleThreatBloonPower;
 
-import static dreadbloonsurv.ModFile.makeID;
-
 public class Fortify extends AbstractEasyCard {
-    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
+    public static final String ID = autoID(new Object() {
+    }.getClass().getEnclosingClass());
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public Fortify() {
-        super(ID,1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREADBLOON_COLOR, "Fortify_CardArt");
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREAD_COLOR, "Fortify_CardArt");
         baseMagicNumber = 2;
         magicNumber = baseMagicNumber;
         exhaust = true;
         this.setCardBack(cardSubType.POWER);
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m)
-    {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         BaseBloon best = null;
         int bestDelay = 999;
         int bestMult = -1;
@@ -48,7 +46,7 @@ public class Fortify extends AbstractEasyCard {
             double currentBestThreat = ((best == null) ? -1 :
                     (((best.amount2 + magicNumber) * bestMult +
                             best.amountShield) / Math.max(0.5, bestDelay - (double) best.amountArmor / 2)) - (((best.amount2) * bestMult +
-                    best.amountShield) / Math.max(0.5, bestDelay - (double) best.amountArmor / 2)));
+                            best.amountShield) / Math.max(0.5, bestDelay - (double) best.amountArmor / 2)));
 
             if (best == null || predictedThreat > currentBestThreat) {
                 best = bb;

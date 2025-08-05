@@ -26,6 +26,6 @@ public class mySetPortraitTextures2
 
     private static Texture getTextureFromString(String textureString) {
         loadTextureFromString(textureString);
-        return (Texture)imgMap.get(textureString);
+        return imgMap.get(textureString);
     }
 }

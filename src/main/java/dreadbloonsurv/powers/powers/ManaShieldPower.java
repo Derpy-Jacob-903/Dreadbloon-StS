@@ -21,7 +21,7 @@ public class ManaShieldPower extends AbstractEasyPower {
             this.canGoNegative = false;
         }
         public void atEndOfTurn(boolean isPlayer) {
-            addToBot((AbstractGameAction)new GainBlockAction((AbstractCreature)this.owner, (AbstractCreature)this.owner, this.amount));
+            addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
         }
 
     public int onAttacked(DamageInfo info, int damageAmount) {
@@ -29,10 +29,10 @@ public class ManaShieldPower extends AbstractEasyPower {
         if (info.type != DamageInfo.DamageType.HP_LOSS)
         {
             if( p.currentBlock < info.output) {
-                addToBot((AbstractGameAction) new ReducePowerAction(this.owner, this.owner, this, p.currentBlock));
+                addToBot(new ReducePowerAction(this.owner, this.owner, this, p.currentBlock));
             }
             else {
-                addToBot((AbstractGameAction) new ReducePowerAction(this.owner, this.owner, (AbstractPower)this, info.output));
+                addToBot(new ReducePowerAction(this.owner, this.owner, this, info.output));
             }
             return damageAmount; //<== Not changed
         }

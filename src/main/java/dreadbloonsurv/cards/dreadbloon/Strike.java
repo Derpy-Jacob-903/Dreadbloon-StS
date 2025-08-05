@@ -3,12 +3,14 @@ package dreadbloonsurv.cards.dreadbloon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 
+import static dreadbloonsurv.ModFile.DREADcharacterColor;
 import static dreadbloonsurv.ModFile.makeID;
 
 public class Strike extends AbstractEasyCard {
-    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass(), ModFile.Enums.DREAD_COLOR);
     // intellij stuff attack, enemy, basic, 6, 3,  , , , 
 
     public Strike() {

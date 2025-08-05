@@ -24,7 +24,7 @@ public class YellowBloon extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         bloonton();
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new BasicBloonPower(m, delay, damage, "Yellow Bloon"), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new BasicBloonPower(m, delay, damage, "Yellow Bloon"), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

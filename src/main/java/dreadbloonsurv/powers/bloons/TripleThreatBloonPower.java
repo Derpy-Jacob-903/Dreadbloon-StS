@@ -60,7 +60,7 @@ public class TripleThreatBloonPower extends BasicBloonPower {
             if (usedCard.hasTag(CardTags.POWER_DREADMOD))
             {
                 this.amountShield += 6;
-            };
+            }
         }
 
     public AbstractPower makeCopy() {

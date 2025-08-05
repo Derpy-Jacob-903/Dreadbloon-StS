@@ -13,7 +13,7 @@ import dreadbloonsurv.powers.bloons.BasicBloonPower;
 ///
 public class ReduceBloonHealthAction extends ReducePowerAction {
     private String powerID;
-    private AbstractPower powerInstance;
+    private final AbstractPower powerInstance;
 
     public ReduceBloonHealthAction(AbstractCreature target, AbstractCreature source, AbstractPower power, int amount) {
         super(target, source, power, amount);

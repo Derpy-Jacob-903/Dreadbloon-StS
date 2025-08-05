@@ -24,9 +24,9 @@ public abstract class AbstractEasyPower extends AbstractPower {
     public boolean immobile = false;
     public boolean amount2IsHealth = false;
     public boolean greenHealth = false;
-    private Color color = new Color(1.0F, 1.0F, 1.0F, 0.0F);
-    private Color redColor = new Color(1.0F, 0.0F, 0.0F, 1.0F);
-    private Color greenColor = new Color(0.0F, 1.0F, 0.0F, 1.0F);
+    private final Color color = new Color(1.0F, 1.0F, 1.0F, 0.0F);
+    private final Color redColor = new Color(1.0F, 0.0F, 0.0F, 1.0F);
+    private final Color greenColor = new Color(0.0F, 1.0F, 0.0F, 1.0F);
     public static Color redColor2 = Color.RED.cpy();
     public static Color greenColor2 = Color.GREEN.cpy();
     public boolean canGoNegative2 = false;

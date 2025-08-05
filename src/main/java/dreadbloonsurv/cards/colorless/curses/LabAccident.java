@@ -17,11 +17,6 @@ public class LabAccident extends AbstractEasyCard {
         AutoplayField.autoplay.set(this, true);
     }
 
-    @Override
-    public void atTurnStart() {
-        super.atTurnStart();
-    }
-
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ReducePowerAction(p, p, BloontoniumPower.POWER_ID, 999));
     }

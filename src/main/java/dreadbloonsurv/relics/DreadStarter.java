@@ -1,6 +1,6 @@
 package dreadbloonsurv.relics;
 
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.colorless.bloons.RockBloon;
 
 import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
@@ -10,7 +10,7 @@ public class DreadStarter extends AbstractEasyRelic {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
     public DreadStarter() {
-        super(ID, RelicTier.STARTER, LandingSound.HEAVY, ModFile.Enums.DREADBLOON_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.HEAVY, ModFile.Enums.DREAD_COLOR);
     }
 
     public void atTurnStart() {

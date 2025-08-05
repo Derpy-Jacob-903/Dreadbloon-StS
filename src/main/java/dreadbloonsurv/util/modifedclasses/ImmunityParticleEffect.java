@@ -15,9 +15,9 @@ public class ImmunityParticleEffect extends AbstractGameEffect {
     private float y;
     private float vX;
     private float vY;
-    private float dur_div2;
-    private float dvy;
-    private float dvx;
+    private final float dur_div2;
+    private final float dvy;
+    private final float dvx;
 
     public ImmunityParticleEffect() {
         this.duration = MathUtils.random(0.6F, 1.0F);

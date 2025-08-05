@@ -4,9 +4,8 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
-import dreadbloonsurv.cards.cardvars.CardTags;
 import dreadbloonsurv.powers.bloons.DoubleBloonPower;
 
 public class DoubleYellow extends AbstractEasyCard {
@@ -14,7 +13,7 @@ public class DoubleYellow extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public DoubleYellow() {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, ModFile.Enums.DREADBLOON_COLOR, "DoubleYellowBloon_CardArt");
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREAD_COLOR, "DoubleYellowBloon_CardArt");
         baseDamage = 12;
         baseDelay = 1;
         bloonName = "Double Lead Bloon";
@@ -25,7 +24,7 @@ public class DoubleYellow extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         bloonton();
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new DoubleBloonPower(m, delay, damage,0, 2, false, bloonName), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new DoubleBloonPower(m, delay, damage,0, 2, false, bloonName), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

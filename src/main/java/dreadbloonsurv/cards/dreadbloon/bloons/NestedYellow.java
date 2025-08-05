@@ -25,7 +25,7 @@ public class NestedYellow extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         bloonton();
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new NestedBloonPower(m, delay, damage, "Nested Yellow", new NestedBloonPower(m, delay, damage, "Nested Green", new NestedBloonPower(m, delay, damage, "Nested Blue", new BasicBloonPower(m, delay, damage, "Red Bloon")))), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new NestedBloonPower(m, delay, damage, "Nested Yellow", new NestedBloonPower(m, delay, damage, "Nested Green", new NestedBloonPower(m, delay, damage, "Nested Blue", new BasicBloonPower(m, delay, damage, "Red Bloon")))), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

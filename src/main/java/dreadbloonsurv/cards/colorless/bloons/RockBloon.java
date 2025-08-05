@@ -24,7 +24,7 @@ public class RockBloon extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         bloonton();
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new MustHitBloonPower(m, delay, damage, baseSecondMagic,  "Rock Bloon", false), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new MustHitBloonPower(m, delay, damage, baseSecondMagic,  "Rock Bloon", false), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

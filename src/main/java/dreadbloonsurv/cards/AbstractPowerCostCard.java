@@ -8,10 +8,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.powers.BloontoniumPower;
 
-import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.ModFile.modID;
 
 @AutoAdd.Ignore
@@ -21,12 +20,12 @@ public abstract class AbstractPowerCostCard extends AbstractEasyCard implements 
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public AbstractPowerCostCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREAD_COLOR, cardID.replace(modID + ":", ""));
         PowerCostId = BloontoniumPower.POWER_ID;
     }
 
     public AbstractPowerCostCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final String cardArt) {
-        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardArt);
+        this(cardID, cost, type, rarity, target, ModFile.Enums.DREAD_COLOR, cardArt);
         PowerCostId = BloontoniumPower.POWER_ID;
     }
 

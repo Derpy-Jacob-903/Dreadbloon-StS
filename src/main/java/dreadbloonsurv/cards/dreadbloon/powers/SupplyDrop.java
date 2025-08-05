@@ -2,6 +2,7 @@ package dreadbloonsurv.cards.dreadbloon.powers;
 
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractEasyCard;
@@ -24,6 +25,7 @@ public class SupplyDrop extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         atb(new DrawCardAction(magicNumber));
+        atb(new GainEnergyAction(1));
     }
 
     @Override

@@ -4,7 +4,9 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PersistFields;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
+import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -17,11 +19,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
-import dreadbloonsurv.CharacterFile;
 import dreadbloonsurv.powers.BloontoniumPower;
-import dreadbloonsurv.powers.bloons.DoubleBloonPower;
 import dreadbloonsurv.relics.PickleJar;
 import dreadbloonsurv.relics.Ratchet;
 import dreadbloonsurv.relics.SpeederatorRelic;
@@ -38,19 +42,30 @@ public abstract class AbstractEasyCard extends CustomCard {
         return makeID(clazz.getSimpleName());
     }
 
-    public static String autoID(Class<?> clazz, CardColor cardColor, CharacterFile.) {
-        String a = "";
-        switch (cardColor)
-        {
-            case RED: a = "_R"; break;
-            case GREEN: a = "_G"; break;
-            case BLUE: a = "_B"; break;
-            case PURPLE: a = "_W"; break;
-        }
-        switch ()
-        
-        
-        return makeID(clazz.getSimpleName() + a);
+    private static final Map<CardColor, String> COLOR_SUFFIXES;
+    static {
+        Map<CardColor, String> map = new HashMap<>();
+        map.put(CardColor.RED, "_R");
+        map.put(CardColor.GREEN, "_G");
+        map.put(CardColor.BLUE, "_B");
+        map.put(CardColor.PURPLE, "_W");
+        map.put(CardColor.COLORLESS, "_TOKEN");
+        map.put(CardColor.CURSE, "_CURSE");
+        map.put(Enums.DREAD_COLOR, "_DREAD");
+        map.put(Enums.SCRAP_COLOR, "_SCRAP");
+        /*
+        map.put(Enums.BLONAR_COLOR, "_BLONAR");
+        map.put(Enums.LYCH_COLOR, "_LYCH");
+        map.put(Enums.VORTEX_COLOR, "_VORTEX");
+        map.put(Enums.PHAYZE_COLOR, "_PHAYZE");
+        map.put(Enums.BLASTA_COLOR, "_BLASTA");
+        */
+        COLOR_SUFFIXES = Collections.unmodifiableMap(map);
+    }
+
+    public static String autoID(Class<?> clazz, CardColor cardColor) {
+        String suffix = COLOR_SUFFIXES.getOrDefault(cardColor, "_???");
+        return makeID(clazz.getSimpleName() + suffix);
     }
 
     protected final CardStrings cardStrings;
@@ -80,11 +95,11 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardID.replace(modID + ":", ""));
+        this(cardID, cost, type, rarity, target, Enums.DREAD_COLOR, cardID.replace(modID + ":", ""));
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final String cardArt) {
-        this(cardID, cost, type, rarity, target, ModFile.Enums.DREADBLOON_COLOR, cardArt);
+        this(cardID, cost, type, rarity, target, Enums.DREAD_COLOR, cardArt);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
@@ -96,10 +111,11 @@ public abstract class AbstractEasyCard extends CustomCard {
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;
+        if (cardStrings.NAME.contains("[MISSING_")) { cardStrings.NAME = cardID; }
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
-
+        setOrbTexture("dreadbloonsurvResources/images/512/bloontonium.png", "dreadbloonsurvResources/images/1024/bloontonium.png");
         if (textureImg.contains("ui/missing.png")) {
             if (CardLibrary.cards != null && !CardLibrary.cards.isEmpty()) {
                 CardArtRoller.computeCard(this);
@@ -107,6 +123,12 @@ public abstract class AbstractEasyCard extends CustomCard {
                 needsArtRefresh = true;
         }
         System.out.println(name + ", " + type + ", " + cost + ", " + FlavorText.CardStringsFlavorField.flavor.get(cardStrings) +  ", " + rawDescription + ", " + baseDamage + ", " + baseBlock + ", " + baseMagicNumber + ", " + baseSecondMagic);
+    }
+
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color, final String cardArt, int charges) {
+        this(cardID, cost, type, rarity, target, color, cardArt);
+        PersistFields.setBaseValue(this, 999);
+        ExhaustiveVariable.setBaseValue(this, charges);
     }
 
     @Override
@@ -183,7 +205,7 @@ public abstract class AbstractEasyCard extends CustomCard {
                 aString = "hero";
                 break;
             case MOX:
-                aString = "mox"; bString = ".png";
+                aString = "mox";
                 switch (moxColor) {
                     case GREEN: bString = "_green.png";
                         break;
@@ -209,7 +231,7 @@ public abstract class AbstractEasyCard extends CustomCard {
         setBackgroundTexture(makeImagePath("512/" + aString + bString), makeImagePath("1024/" + aString + bString));
     }
 
-    public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
+    public static String getCardTextureString(final String cardName, final CardType cardType) {
         String textureString;
 
         switch (cardType) {
@@ -230,7 +252,7 @@ public abstract class AbstractEasyCard extends CustomCard {
         return textureString;
     }
 
-    public static String myGetCardTextureString(final String cardArt, final AbstractCard.CardType cardType) {
+    public static String myGetCardTextureString(final String cardArt, final CardType cardType) {
         String textureString;
         switch (cardType) {
             case ATTACK:

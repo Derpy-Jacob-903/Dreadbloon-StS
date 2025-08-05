@@ -25,7 +25,7 @@ public class TripleThreatBloon extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         bloonton();
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new TripleThreatBloonPower(m, delay, damage,  magicNumber, 0, false, "Triple Threat Bloon"), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new TripleThreatBloonPower(m, delay, damage,  magicNumber, 0, false, "Triple Threat Bloon"), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

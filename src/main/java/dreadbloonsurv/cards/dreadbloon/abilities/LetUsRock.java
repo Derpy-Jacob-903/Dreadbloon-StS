@@ -15,9 +15,10 @@ public class LetUsRock extends AbstractPowerCostCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public LetUsRock() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, "RapidShot_CardArt");
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, "RapidShot_CardArt");
         baseDamage = 6;
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.ABILITY_DREADMOD);
+        this.setCardBack(cardSubType.ABILITY);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

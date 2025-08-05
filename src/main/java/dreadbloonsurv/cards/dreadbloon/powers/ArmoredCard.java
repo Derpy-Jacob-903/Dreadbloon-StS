@@ -1,10 +1,13 @@
 package dreadbloonsurv.cards.dreadbloon.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractEasyCard;
+import dreadbloonsurv.cards.colorless.BombStatus;
 import dreadbloonsurv.powers.powers.ArmoredPower;
 
 import static dreadbloonsurv.util.Wiz.*;
@@ -23,6 +26,7 @@ public class ArmoredCard extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new ApplyPowerAction(p, p, new ArmoredPower(p, 2 + AbstractDungeon.actNum)));
+        addToBot(new MakeTempCardInDiscardAction(new BombStatus(), 1));
     }
 
     @Override

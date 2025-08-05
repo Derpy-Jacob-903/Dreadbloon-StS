@@ -15,16 +15,17 @@ public class Leer extends AbstractPowerCostCard {
 
     public Leer() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.ENEMY);
+        this.setCardBack(cardSubType.ABILITY);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (m.hasPower(FrailPower.POWER_ID))
         {
-            addToBot(new ApplyPowerAction(m, p, new FrailPower(m, 1, false), 1));
+            addToBot(new ApplyPowerAction(m, p, new DexterityPower(m, -1), -1));
         }
         else
         {
-            addToBot(new ApplyPowerAction(m, p, new DexterityPower(m, -1), -1));
+            addToBot(new ApplyPowerAction(m, p, new FrailPower(m, 1, false), 1));
         }
     }
 

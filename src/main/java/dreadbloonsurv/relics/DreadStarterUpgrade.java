@@ -1,7 +1,7 @@
 package dreadbloonsurv.relics;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.colorless.bloons.SentinelBloon;
 
 import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
@@ -11,7 +11,7 @@ public class DreadStarterUpgrade extends AbstractEasyRelic {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
     public DreadStarterUpgrade() {
-        super(ID, RelicTier.STARTER, LandingSound.HEAVY, ModFile.Enums.DREADBLOON_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.HEAVY, ModFile.Enums.DREAD_COLOR);
     }
 
     public void atTurnStart() {

@@ -4,11 +4,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.powers.bloons.BaseBloon;
 
-import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.makeInHand;
 
 public class BloonEmbiggen extends AbstractEasyCard {
@@ -16,7 +15,7 @@ public class BloonEmbiggen extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public BloonEmbiggen() {
-        super(ID,1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, ModFile.Enums.DREADBLOON_COLOR, "BloonEmbiggen_CardArt");
+        super(ID,1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, ModFile.Enums.DREAD_COLOR, "BloonEmbiggen_CardArt");
         baseMagicNumber = 3;
         magicNumber = baseMagicNumber;
         exhaust = true;

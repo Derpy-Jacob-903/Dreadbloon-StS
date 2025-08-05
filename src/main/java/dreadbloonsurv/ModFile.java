@@ -7,8 +7,8 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -48,22 +48,31 @@ public class ModFile implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static Color DREADcharacterColor = new Color(0.482f, 0.290f, 0.192f, 1);
+    public static Color SCRAPcharacterColor = new Color(0.482f, 0.482f, 0.482f, 1);
 
     public static final String SHOULDER1 = makeCharacterPath("mainChar/shoulder.png");
     public static final String SHOULDER2 = makeCharacterPath("mainChar/shoulder2.png");
     public static final String CORPSE = makeCharacterPath("mainChar/corpse.png");
-    private static final String ATTACK_S_ART = makeImagePath("512/attack.png");
-    private static final String SKILL_S_ART = makeImagePath("512/skill.png");
-    private static final String POWER_S_ART = makeImagePath("512/power.png");
+    private static final String ATTACK_S_ART = makeImagePath("512/dreadbloon_attack.png");
+    private static final String SKILL_S_ART = makeImagePath("512/dreadbloon_skill.png");
+    private static final String POWER_S_ART = makeImagePath("512/dreadbloon_power.png");
+    private static final String ATTACK_S_ART_SCRAP = makeImagePath("512/scrapborn_attack.png");
+    private static final String SKILL_S_ART_SCRAP = makeImagePath("512/scrapborn_skill.png");
+    private static final String POWER_S_ART_SCRAP = makeImagePath("512/scrapborn_power.png");
     private static final String CARD_ENERGY_S = makeImagePath("512/energy.png");
     private static final String TEXT_ENERGY = makeImagePath("512/text_energy.png");
-    private static final String ATTACK_L_ART = makeImagePath("1024/attack.png");
-    private static final String SKILL_L_ART = makeImagePath("1024/skill.png");
-    private static final String POWER_L_ART = makeImagePath("1024/power.png");
+    private static final String ATTACK_L_ART = makeImagePath("1024/dreadbloon_attack.png");
+    private static final String SKILL_L_ART = makeImagePath("1024/dreadbloon_skill.png");
+    private static final String POWER_L_ART = makeImagePath("1024/dreadbloon_power.png");
+    private static final String ATTACK_L_ART_SCRAP = makeImagePath("1024/scrapborn_attack.png");
+    private static final String SKILL_L_ART_SCRAP = makeImagePath("1024/scrapborn_skill.png");
+    private static final String POWER_L_ART_SCRAP = makeImagePath("1024/scrapborn_power.png");
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
     private static final String CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
     private static final String CHARSELECT_PORTRAIT = makeImagePath("charSelect/charBG.png");
+    private static final String CHARSELECT_BUTTON_SCRAP = makeImagePath("charSelect/charButton.png");
+    private static final String CHARSELECT_PORTRAIT_SCRAP = makeImagePath("charSelect/charBG.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
@@ -81,10 +90,16 @@ public class ModFile implements
     public ModFile() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(ModFile.Enums.DREADBLOON_COLOR, characterColor, characterColor, characterColor,
-                characterColor, characterColor, characterColor, characterColor,
+        BaseMod.addColor(Enums.DREAD_COLOR, DREADcharacterColor, DREADcharacterColor, DREADcharacterColor,
+                DREADcharacterColor, DREADcharacterColor, DREADcharacterColor, DREADcharacterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(Enums.SCRAP_COLOR, SCRAPcharacterColor, SCRAPcharacterColor, SCRAPcharacterColor,
+                SCRAPcharacterColor, SCRAPcharacterColor, SCRAPcharacterColor, SCRAPcharacterColor,
+                ATTACK_S_ART_SCRAP, SKILL_S_ART_SCRAP, POWER_S_ART_SCRAP, CARD_ENERGY_S,
+                ATTACK_L_ART_SCRAP, SKILL_L_ART_SCRAP, POWER_L_ART_SCRAP,
                 CARD_ENERGY_L, TEXT_ENERGY);
     }
 
@@ -119,9 +134,19 @@ public class ModFile implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], ModFile.Enums.DREADBLOON),
-            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.DREADBLOON);
-        
+        if (Loader.isModLoaded("RainWorld")) {
+            System.out.println("Using RW Dreadblon!");
+            BaseMod.addCharacter(new RWDreadCharaFile(RWDreadCharaFile.characterStrings.NAMES[1], ModFile.Enums.DREADBLOON),
+                    CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.DREADBLOON);
+            BaseMod.addCharacter(new LiverTest(LiverTest.characterStrings.NAMES[1], ModFile.Enums.SCRAPBORN),
+                    CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.SCRAPBORN);
+        }
+        else
+        {
+            System.out.println("not using RW Dreadblon :(");
+            BaseMod.addCharacter(new DreadCharacterFile(DreadCharacterFile.characterStrings.NAMES[1], ModFile.Enums.DREADBLOON),
+                    CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.DREADBLOON);
+        }
         new AutoAdd(modID)
             .packageFilter(AbstractEasyPotion.class)
             .any(AbstractEasyPotion.class, (info, potion) -> {
@@ -194,18 +219,26 @@ public class ModFile implements
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass DREADBLOON;
-        @SpireEnum(name = "DREADBLOON_COLOR")
-        public static AbstractCard.CardColor DREADBLOON_COLOR;
-        @SpireEnum(name = "DREADBLOON_COLOR")
+        @SpireEnum(name = "DREAD_COLOR")
+        public static AbstractCard.CardColor DREAD_COLOR;
+        @SpireEnum(name = "DREAD_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
+
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass SCRAPBORN;
+        @SpireEnum(name = "SCRAP_COLOR")
+        public static AbstractCard.CardColor SCRAP_COLOR;
+        @SpireEnum(name = "SCRAP_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR_SCRAPBORN;
 
         /*
         @SpireEnum
         public static AbstractPlayer.PlayerClass BLOONARIUS;
-        @SpireEnum(name = "BLOONARIUS_COLOR")
-        public static AbstractCard.CardColor BLOONARIUS_COLOR;
-        @SpireEnum(name = "BLOONARIUS_COLOR")
+        @SpireEnum(name = "BLONAR_COLOR")
+        public static AbstractCard.CardColor BLONAR_COLOR;
+        @SpireEnum(name = "BLONAR_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR_BLOONARIUS;
 
@@ -234,10 +267,10 @@ public class ModFile implements
         public static CardLibrary.LibraryType LIBRARY_COLOR_PHAYZE;
 
         @SpireEnum
-        public static AbstractPlayer.PlayerClass BLASTAPOPOULOS;
-        @SpireEnum(name = "BLASTAPOPOULOS_COLOR")
-        public static AbstractCard.CardColor BLASTAPOPOULOS_COLOR;
-        @SpireEnum(name = "BLASTAPOPOULOS_COLOR")
+        public static AbstractPlayer.PlayerClass BLASTA;
+        @SpireEnum(name = "BLASTA_COLOR")
+        public static AbstractCard.CardColor BLASTA_COLOR;
+        @SpireEnum(name = "BLASTA_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR_BLASTAPOPOULOS;
         */

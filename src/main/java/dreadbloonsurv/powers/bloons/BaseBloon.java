@@ -64,15 +64,17 @@ public class BaseBloon extends AbstractEasyPower implements NonStackablePower {
 
     public void onGainedBlock(float blockAmount)
     {
-        addToBot((AbstractGameAction) new ReduceBloonHealthAction(this.owner, this.owner, this, (int)blockAmount));
-        this.onDamaged();
+        if (this instanceof MustHitBloonPower || (!this.owner.hasPower(MustHitBloonPower.POWER_ID) && !this.owner.hasPower(SentinelBloonPower.POWER_ID))) {
+            addToBot(new ReduceBloonHealthAction(this.owner, this.owner, this, (int) blockAmount));
+            this.onDamaged();
+        }
     }
 
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target)
     {
         if (target != this.owner) //Not self damage (i.e. Bloons)
         {
-            addToBot((AbstractGameAction)new ReduceBloonHealthAction(this.owner, this.owner, this, info.output));
+            addToBot(new ReduceBloonHealthAction(this.owner, this.owner, this, info.output));
             this.onDamaged();
         }
     }

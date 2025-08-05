@@ -13,7 +13,7 @@ public class ImmunityCard extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public ImmunityCard() {
-        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, "Armored_Cardart");
+        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, "Immunity_Cardart");
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.POWER_DREADMOD);
         baseMagicNumber = magicNumber = 1;
         exhaust = true;
@@ -21,7 +21,7 @@ public class ImmunityCard extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new ChangeStanceAction(ImmunityStance.STANCE_ID));
+        atb(new ChangeStanceAction(new ImmunityStance()));
     }
 
     @Override

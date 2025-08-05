@@ -6,18 +6,16 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.powers.bloons.BasicBloonPower;
-
-import static dreadbloonsurv.ModFile.makeID;
 
 public class Moab extends AbstractEasyCard {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public Moab() {
-        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, ModFile.Enums.DREADBLOON_COLOR, "MOAB_CardArt");
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREAD_COLOR, "MOAB_CardArt");
         baseDamage = 50;
         baseDelay = delay = 4;
         baseMagicNumber = magicNumber = 1;
@@ -29,7 +27,7 @@ public class Moab extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new BasicBloonPower(m, 4, damage, "MOAB"), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new BasicBloonPower(m, 4, damage, "MOAB"), 1, true, AbstractGameAction.AttackEffect.NONE));
         bloonton();
     }
 

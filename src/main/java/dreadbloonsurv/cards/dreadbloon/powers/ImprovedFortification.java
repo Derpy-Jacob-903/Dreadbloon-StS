@@ -1,25 +1,22 @@
 package dreadbloonsurv.cards.dreadbloon.powers;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.powers.bloons.BaseBloon;
 import dreadbloonsurv.powers.bloons.DoubleBloonPower;
 import dreadbloonsurv.powers.bloons.TripleThreatBloonPower;
-
-import static dreadbloonsurv.ModFile.makeID;
 
 public class ImprovedFortification extends AbstractEasyCard {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public ImprovedFortification() {
-        super(ID,1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREADBLOON_COLOR, "Fortify_CardArt");
+        super(ID,1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY, ModFile.Enums.DREAD_COLOR, "ImprovedFortification_CardArt");
         baseMagicNumber = 2;
         magicNumber = baseMagicNumber;
         exhaust = true;
@@ -69,7 +66,7 @@ public class ImprovedFortification extends AbstractEasyCard {
 
     public void baseUse(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot((AbstractGameAction)new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         BaseBloon E = null;
         int Edelay = 2;
         int EhealthMult = 1;

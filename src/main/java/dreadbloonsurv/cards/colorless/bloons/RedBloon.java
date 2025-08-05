@@ -18,7 +18,7 @@ public class RedBloon extends AbstractEasyCard {
 
     public RedBloon() {
         super(ID, 0, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS, "RedBloon_CardArt");
-        baseDamage = 12;
+        baseDamage = 10;
         baseDelay = 2;
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.BLOON_DREADMOD);
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.BASIC_DREADMOD);

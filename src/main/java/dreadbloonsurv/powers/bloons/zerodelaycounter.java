@@ -29,7 +29,7 @@ public class zerodelaycounter extends AbstractEasyPower implements HealthBarRend
         {
             if (target != this.owner)
             {
-                addToBot((AbstractGameAction)new ReducePowerAction(this.owner, this.owner, this, damageAmount));
+                addToBot(new ReducePowerAction(this.owner, this.owner, this, damageAmount));
             }
         }
 

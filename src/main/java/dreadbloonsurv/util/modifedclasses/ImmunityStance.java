@@ -27,7 +27,12 @@ import static dreadbloonsurv.ModFile.makeID;
 /*    */   
 /*    */   public ImmunityStance() {
 /* 22 */     this.ID = makeID("ImmunityStance");
-/* 23 */     this.name = stanceString.NAME;
+             try {
+                 this.name = stanceString.NAME;
+             }
+             catch (Exception e) {
+                 this.name = "Immunity";
+             }
 /* 24 */     updateDescription();
 /*    */   }
 
@@ -39,7 +44,7 @@ import static dreadbloonsurv.ModFile.makeID;
 /*    */   }
 
     public void atStartOfTurn() {
-        /* 49 */     AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ChangeStanceAction("Neutral"));
+        /* 49 */     AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
         /*    */   }
 
     /*    */   public void updateAnimation() {
@@ -60,7 +65,12 @@ import static dreadbloonsurv.ModFile.makeID;
 /*    */   }
 
 /*    */   public void updateDescription() {
-/* 65 */     this.description = stanceString.DESCRIPTION[0];
+            try {
+                this.description = stanceString.NAME;
+            }
+            catch (Exception e) {
+                this.description = "Take no damage this turn.";
+            }
 /*    */   }
 /*    */ 
 /*    */   

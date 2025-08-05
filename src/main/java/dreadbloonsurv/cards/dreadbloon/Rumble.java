@@ -14,6 +14,7 @@ public class Rumble extends AbstractPowerCostCard {
 
     public Rumble() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.ENEMY);
+        this.setCardBack(cardSubType.ABILITY);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

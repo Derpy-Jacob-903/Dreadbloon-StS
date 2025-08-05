@@ -1,4 +1,6 @@
 package dreadbloonsurv.powers.bloons;
+import basemod.interfaces.OnPlayerDamagedSubscriber;
+import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.OnPlayerDamagedHook;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -13,7 +15,7 @@ import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 import static dreadbloonsurv.util.Wiz.*;
 
-public class MustHitBloonPower extends BasicBloonPower {
+public class MustHitBloonPower extends BasicBloonPower implements OnPlayerDamagedSubscriber {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
         private static final PowerType TYPE = PowerType.DEBUFF;
@@ -34,12 +36,12 @@ public class MustHitBloonPower extends BasicBloonPower {
         super(POWER_ID, owner, delay, health, 0, armor, immobile, name);
     }
 
-    public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
-        att(new GainBlockAction(AbstractDungeon.player, Math.min(damageAmount, this.amount2 + this.amountShield + this.amountArmor)));
-        return damageAmount;
-    }
-
     public AbstractPower makeCopy() {
             return new MustHitBloonPower(this.owner, this.amount, this.amount2);
         }
+
+    public int receiveOnPlayerDamaged(int i, DamageInfo damageInfo) {
+        att(new GainBlockAction(AbstractDungeon.player, Math.min(i, this.amount2 + this.amountShield + this.amountArmor)));
+        return 0;
+    }
 }

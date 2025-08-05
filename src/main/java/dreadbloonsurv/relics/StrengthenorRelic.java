@@ -1,16 +1,15 @@
 package dreadbloonsurv.relics;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 
-import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 
 public class StrengthenorRelic extends AbstractEasyRelic {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
     public StrengthenorRelic() {
-        super(ID, RelicTier.BOSS, LandingSound.FLAT, ModFile.Enums.DREADBLOON_COLOR);
+        super(ID, RelicTier.BOSS, LandingSound.FLAT, ModFile.Enums.DREAD_COLOR);
     }
 
     private static final String starterReplaceID = DreadStarter.ID;

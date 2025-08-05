@@ -17,14 +17,14 @@ public class SentinelBloon extends AbstractPowerCostCard {
         baseMagicNumber = 6;
         baseDelay = 1;
         baseSecondMagic = 0;
-        tags.add(dreadbloonsurv.cards.cardvars.CardTags.BLOON_DREADMOD);;
+        tags.add(dreadbloonsurv.cards.cardvars.CardTags.BLOON_DREADMOD);
         this.exhaust = true;
         this.setCardBack(cardSubType.BLOON);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         bloonton();
-        addToBot((AbstractGameAction)new ApplyPowerAction(m, p, new SentinelBloonPower(m, delay, damage, baseSecondMagic, "Sentinel Bloon", false, baseMagicNumber), 1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new SentinelBloonPower(m, delay, damage, baseSecondMagic, "Sentinel Bloon", false, baseMagicNumber), 1, true, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

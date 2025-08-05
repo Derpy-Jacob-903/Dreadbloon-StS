@@ -2,7 +2,7 @@ package dreadbloonsurv.relics;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import dreadbloonsurv.CharacterFile;
+import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.colorless.bloons.RedBloon;
 import dreadbloonsurv.cards.cardvars.CardTags;
 
@@ -13,7 +13,7 @@ public class CueBall extends AbstractEasyRelic {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
 
     public CueBall() {
-        super(ID, RelicTier.BOSS, LandingSound.MAGICAL, ModFile.Enums.DREADBLOON_COLOR);
+        super(ID, RelicTier.BOSS, LandingSound.MAGICAL, ModFile.Enums.DREAD_COLOR);
     }
 
     public void onPlayCard(AbstractCard c, AbstractMonster m) {

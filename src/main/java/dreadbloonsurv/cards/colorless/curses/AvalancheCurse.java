@@ -14,7 +14,6 @@ public class AvalancheCurse extends AbstractEasyCard {
 
     public AvalancheCurse() {
         super(ID, 1, CardType.CURSE, CardRarity.CURSE, CardTarget.SELF, CardColor.CURSE, "Avalanche_CardArt");
-        this.setCardBack(cardSubType.POWER);
         this.retain = true;
     }
 

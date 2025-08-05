@@ -6,14 +6,12 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -23,15 +21,14 @@ import dreadbloonsurv.cards.dreadbloon.Leer;
 import dreadbloonsurv.cards.dreadbloon.Rumble;
 import dreadbloonsurv.cards.dreadbloon.Strike;
 import dreadbloonsurv.cards.colorless.bloons.RockBloon;
-import dreadbloonsurv.cards.colorless.bloons.SentinelBloon;
 import dreadbloonsurv.relics.DreadStarter;
 
 import java.util.ArrayList;
 
-import static dreadbloonsurv.ModFile.Enums.DREADBLOON_COLOR;
+import static dreadbloonsurv.ModFile.Enums.DREAD_COLOR;
 import static dreadbloonsurv.ModFile.*;
 
-public class CharacterFile extends CustomPlayer {
+public class DreadCharacterFile extends CustomPlayer {
 
     static final String ID = makeID("Dreadbloon");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
@@ -39,7 +36,7 @@ public class CharacterFile extends CustomPlayer {
     static final String[] TEXT = characterStrings.TEXT;
 
 
-    public CharacterFile(String name, PlayerClass setClass) {
+    public DreadCharacterFile(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), null), new SpriterAnimation(
                 makeCharacterPath("mainChar/static.scml")));
         initializeClass(null,
@@ -56,7 +53,7 @@ public class CharacterFile extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                80, 80, 0, 99, 5, this, getStartingRelics(),
+                75, 75, 8, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -77,9 +74,6 @@ public class CharacterFile extends CustomPlayer {
         }
         for (int i = 0; i < 2; i++) {
             retVal.add(RockBloon.ID);
-        }
-        for (int i = 0; i < 1; i++) {
-            retVal.add(SentinelBloon.ID);
         }
         return retVal;
     }
@@ -123,12 +117,12 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return DREADBLOON_COLOR;
+        return DREAD_COLOR;
     }
 
     @Override
     public Color getCardTrailColor() {
-        return characterColor.cpy();
+        return DREADcharacterColor.cpy();
     }
 
     @Override
@@ -143,8 +137,8 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
-        return null;
+
+        return new RockBloon();
     }
 
     @Override
@@ -154,17 +148,17 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new CharacterFile(name, chosenClass);
+        return new DreadCharacterFile(name, chosenClass);
     }
 
     @Override
     public Color getCardRenderColor() {
-        return characterColor.cpy();
+        return DREADcharacterColor.cpy();
     }
 
     @Override
     public Color getSlashAttackColor() {
-        return characterColor.cpy();
+        return DREADcharacterColor.cpy();
     }
 
     @Override

@@ -6,7 +6,7 @@ import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
 
 public class Defend extends AbstractEasyCard {
-    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass(), ModFile.Enums.DREAD_COLOR);
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass(), ModFile.Enums.SCRAP_COLOR);
     // intellij stuff skill, self, basic, , ,  5, 3, , 
 
     public Defend() {

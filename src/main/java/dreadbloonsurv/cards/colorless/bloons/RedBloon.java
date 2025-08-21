@@ -1,14 +1,12 @@
 package dreadbloonsurv.cards.colorless.bloons;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PersistFields;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractEasyCard;
-import dreadbloonsurv.cards.cardvars.CardTags;
-import dreadbloonsurv.powers.bloons.BasicBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.BasicBloonPower;
 
 import static dreadbloonsurv.ModFile.makeID;
 
@@ -19,7 +17,7 @@ public class RedBloon extends AbstractEasyCard {
     public RedBloon() {
         super(ID, 0, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS, "RedBloon_CardArt");
         baseDamage = 10;
-        baseDelay = 2;
+        baseDelay = delay = delay = 2;
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.BLOON_DREADMOD);
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.BASIC_DREADMOD);
         PersistFields.setBaseValue(this, 2);

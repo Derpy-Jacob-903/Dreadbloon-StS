@@ -5,17 +5,17 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractPowerCostCard;
-import dreadbloonsurv.powers.bloons.SentinelBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.SentinelBloonPower;
 
 public class SentinelBloon extends AbstractPowerCostCard {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public SentinelBloon() {
-        super(ID, 2, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardColor.COLORLESS, "SentinelBloon_CardArt");
+        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS, "SentinelBloon_CardArt");
         baseDamage = 8;
         baseMagicNumber = 6;
-        baseDelay = 1;
+        baseDelay = delay = delay = 1;
         baseSecondMagic = 0;
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.BLOON_DREADMOD);
         this.exhaust = true;

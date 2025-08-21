@@ -5,8 +5,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import dreadbloonsurv.orbs.ArbitrOrb;
+import dreadbloonsurv.orbs.MustHitBloon;
+import dreadbloonsurv.powers.bloons.deprecated.ARBITRPower;
 
 import static dreadbloonsurv.ModFile.makeID;
 
@@ -30,7 +35,14 @@ public class ARBITRVigorPower extends AbstractPower {
     }
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        if (owner.hasPower(ARBITRPower.POWER_ID)) { return damage; }
+        Boolean hasArbitrOrb = false;
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+            if (orb instanceof ArbitrOrb) {
+                hasArbitrOrb = true;
+                break;
+            }
+        }
+        if (owner.hasPower(ARBITRPower.POWER_ID) || hasArbitrOrb) { return damage; }
         float vigorAmount = 0;
         if (type == DamageType.NORMAL)
         {

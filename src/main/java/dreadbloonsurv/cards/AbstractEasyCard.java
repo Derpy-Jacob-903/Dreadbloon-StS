@@ -12,8 +12,10 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -25,12 +27,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import dreadbloonsurv.ModFile;
+import dreadbloonsurv.cards.cardvars.CardTags;
+import dreadbloonsurv.orbs.AbstractBloon;
 import dreadbloonsurv.powers.BloontoniumPower;
 import dreadbloonsurv.relics.PickleJar;
 import dreadbloonsurv.relics.Ratchet;
 import dreadbloonsurv.relics.SpeederatorRelic;
 import dreadbloonsurv.relics.StrengthenorRelic;
 import dreadbloonsurv.util.CardArtRoller;
+import dreadbloonsurv.util.ProAudio;
 
 import static dreadbloonsurv.ModFile.*;
 import static dreadbloonsurv.util.Wiz.*;
@@ -111,7 +118,7 @@ public abstract class AbstractEasyCard extends CustomCard {
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;
-        if (cardStrings.NAME.contains("[MISSING_")) { cardStrings.NAME = cardID; }
+        if (cardStrings.NAME.contains("[MISSING_")) { cardStrings.NAME = cardID.replace(modID + ":" , "").replace(COLOR_SUFFIXES.getOrDefault(color, "_???"), "").replaceAll("([a-z])([A-Z])", "$1 $2"); }
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
@@ -380,7 +387,7 @@ public abstract class AbstractEasyCard extends CustomCard {
             AbstractEasyCard c = (AbstractEasyCard) result;
             c.baseSecondDamage = c.secondDamage = baseSecondDamage;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
-            c.baseDelay = c.delay = baseDelay;
+            c.baseDelay = delay = c.delay = baseDelay;
         }
         return result;
     }
@@ -453,16 +460,25 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     protected void bloontonium() {
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BloontoniumPower(AbstractDungeon.player, costForTurn), costForTurn));
+        playAudio(ProAudio.BloontoniumGained);
     }
 
     protected void bloonton() {
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BloontoniumPower(AbstractDungeon.player, costForTurn), costForTurn));
+        playAudio(ProAudio.BloontoniumGained);
         //atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block*costForTurn));
     }
 
     protected void bloonton(int mod) {
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BloontoniumPower(AbstractDungeon.player, costForTurn - mod), costForTurn - mod));
+        playAudio(ProAudio.BloontoniumGained);
         //atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block*costForTurn));
+    }
+
+    public void chan(AbstractOrb orb)
+    {
+        atb(new ChannelAction(orb));
+        atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BloontoniumPower(AbstractDungeon.player, costForTurn), costForTurn));
     }
 
 
@@ -471,9 +487,9 @@ public abstract class AbstractEasyCard extends CustomCard {
      */
     protected void commonBloonMods() {
         this.resetAttributes();
-        if (p().hasRelic(PickleJar.ID)) { baseDamage += 7; baseDelay = Math.max(delay + 1, 0);}
-        if (p().hasRelic(Ratchet.ID) && baseDelay > 1) { baseDelay = Math.max(delay - 1, 1); if (cost >= 0){cost += 1;}}
-        if (p().hasRelic(SpeederatorRelic.ID)) { baseDelay = Math.max(delay - 1, 0);}
+        if (p().hasRelic(PickleJar.ID)) { baseDamage += 7; baseDelay = delay = Math.max(delay + 1, 0);}
+        if (p().hasRelic(Ratchet.ID) && baseDelay > 1) { baseDelay = delay = Math.max(delay - 1, 1); if (cost >= 0){cost += 1;}}
+        if (p().hasRelic(SpeederatorRelic.ID)) { baseDelay = delay = Math.max(delay - 1, 0);}
         if (p().hasRelic(StrengthenorRelic.ID)) { baseDamage += 6;}
         if (p().hasRelic(SpeederatorRelic.ID) && !p().hasRelic(StrengthenorRelic.ID)) { baseDamage -= 5;}
     }
@@ -493,5 +509,11 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public CardArtRoller.ReskinInfo reskinInfo(String ID) {
         return null;
+    }
+
+    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if (this.hasTag(dreadbloonsurv.cards.cardvars.CardTags.MONKEY_DREADMOD) || this.hasTag(dreadbloonsurv.cards.cardvars.CardTags.SPELL_DREADMOD)) {
+
+        }
     }
 }

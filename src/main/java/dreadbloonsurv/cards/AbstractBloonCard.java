@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import dreadbloonsurv.ModFile;
-import dreadbloonsurv.powers.bloons.BasicBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.BasicBloonPower;
 
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.ModFile.modID;

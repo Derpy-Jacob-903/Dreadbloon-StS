@@ -24,10 +24,7 @@ public class BloonRemovalTime extends AbstractPowerCostCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        RockBloon r = new RockBloon();
         shuffleIn(new Avalanche());
-        r.costForTurn = 0;
-        makeInHand(r);
     }
 
     @Override

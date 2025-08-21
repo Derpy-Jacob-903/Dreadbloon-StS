@@ -5,11 +5,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import dreadbloonsurv.ModFile;
 import dreadbloonsurv.cards.AbstractEasyCard;
-import dreadbloonsurv.powers.bloons.BaseBloon;
-import dreadbloonsurv.powers.bloons.DoubleBloonPower;
-import dreadbloonsurv.powers.bloons.TripleThreatBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.BaseBloon;
+import dreadbloonsurv.powers.bloons.deprecated.DoubleBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.TripleThreatBloonPower;
 
 public class BoosterLatch extends AbstractEasyCard {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());

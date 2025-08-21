@@ -5,17 +5,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractEasyCard;
-import dreadbloonsurv.cards.AbstractPowerCostCard;
-import dreadbloonsurv.powers.bloons.MustHitBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.MustHitBloonPower;
 
 public class RockBloon extends AbstractEasyCard {
     public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public RockBloon() {
-        super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CardColor.COLORLESS, "RockBloon_CardArt");
-        baseDamage = 12;
-        baseDelay = 3;
+        super(ID, 1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS, "RockBloon_CardArt");
+        baseDamage = 9;
+        baseDelay = delay = delay = 3;
         baseSecondMagic = 0;
         tags.add(dreadbloonsurv.cards.cardvars.CardTags.BLOON_DREADMOD);
         this.exhaust = true;

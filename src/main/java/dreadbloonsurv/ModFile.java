@@ -134,16 +134,16 @@ public class ModFile implements
 
     @Override
     public void receiveEditCharacters() {
-        if (Loader.isModLoaded("RainWorld")) {
+        /*if (Loader.isModLoaded("RainWorld")) {
             System.out.println("Using RW Dreadblon!");
             BaseMod.addCharacter(new RWDreadCharaFile(RWDreadCharaFile.characterStrings.NAMES[1], ModFile.Enums.DREADBLOON),
                     CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.DREADBLOON);
             BaseMod.addCharacter(new LiverTest(LiverTest.characterStrings.NAMES[1], ModFile.Enums.SCRAPBORN),
                     CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.SCRAPBORN);
         }
-        else
+        else*/
         {
-            System.out.println("not using RW Dreadblon :(");
+            //System.out.println("not using RW Dreadblon :(");
             BaseMod.addCharacter(new DreadCharacterFile(DreadCharacterFile.characterStrings.NAMES[1], ModFile.Enums.DREADBLOON),
                     CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, ModFile.Enums.DREADBLOON);
         }

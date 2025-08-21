@@ -4,9 +4,11 @@ import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AutoplayFie
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.powers.powers.ArmoredPower;
@@ -17,15 +19,19 @@ public class BombStatus extends AbstractEasyCard {
 
     public BombStatus() {
         super(ID, 0, CardType.STATUS, CardRarity.SPECIAL, CardTarget.SELF, CardColor.COLORLESS, "Bomb_CardArt");
-        tags.add(dreadbloonsurv.cards.cardvars.CardTags.POWER_DREADMOD);
-        AutoplayField.autoplay.set(this, true);
+        tags.add(dreadbloonsurv.cards.cardvars.CardTags.SPELL_DREADMOD);
+        //AutoplayField.autoplay.set(this, true);
         magicNumber = 1;
         this.exhaust = true;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        AbstractPlayer p = AbstractDungeon.player;
         addToBot(new RemoveSpecificPowerAction(p, p, ArmoredPower.POWER_ID));
-        addToBot(new DamageAction(p, new DamageInfo(p, 4, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         addToBot(new DrawCardAction(magicNumber));
     }
 

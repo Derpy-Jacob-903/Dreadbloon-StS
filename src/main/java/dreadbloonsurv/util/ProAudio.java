@@ -8,6 +8,13 @@ public enum ProAudio {
     */
     BloontoniumGained,
     BloontoniumLost,
-    CardStorm01,
-    CardStormLightning01
+    BossDreadbloonCastGeneric01,
+    BossDreadbloonCastGeneric02,
+    BossDreadbloonCastGeneric03,
+    BossDreadbloonCastGeneric04,
+    CastRock01,
+    CastRock02,
+    CastRock03,
+    DebuffAttack01,
+    DebuffAttack02
 }

@@ -21,7 +21,8 @@ public class AvalancheCurse extends AbstractEasyCard {
     }
 
     public void atTurnStartPreDraw() {
-        addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, AbstractDungeon.actNum , DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        magicNumber = AbstractDungeon.actNum;
+        addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

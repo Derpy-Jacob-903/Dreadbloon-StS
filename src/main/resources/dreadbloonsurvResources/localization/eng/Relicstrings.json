@@ -10,14 +10,21 @@
     "NAME": "Rocky Deck",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "At the start of your turn, add a Rock Bloon to your hand. It costs 0."
+      "At the start of your turn, #ychannel a #yRock #yBloon to your hand. It costs 0."
     ]
   },  
 "${ModID}:DreadStarterUpgrade": {
     "NAME": "Sentinel Deck",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "At the start of your turn, add a Sentinel Bloon to your hand. It costs 1 less."
+      "#ychannel a #ySentinel #yBloon."
+    ]
+  },
+  "${ModID}:ScrapbornStarter": {
+    "NAME": "Rocky Deck",
+    "FLAVOR": "TODO: make this a sweet relic.",
+    "DESCRIPTIONS": [
+      "At the start of every 4th turn, #ychannel a #yRock #yBloon to your hand."
     ]
   },
   "${ModID}:CueBall": {
@@ -38,7 +45,7 @@
     "NAME": "Bloon Strengthenor",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "Your Bloons have +12 Health, but Bloons with less than 24 health cost +1 energy."
+      "Your Bloons have +12 Health, but Bloons with more than 24 health cost +1 energy."
     ]
   },
   "${ModID}:HealthBuff": {
@@ -59,7 +66,7 @@
     "NAME": "Rapid Reload Ratchet",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "Bloons with more than 1 delay have their delay reduced by 1, but they cost 1 more energy."
+      "Bloons with more than 1 delay have their delay reduced by 1, but cost 1 more energy."
     ]
   },
   "${ModID}:Workshop": {

@@ -15,13 +15,12 @@ import java.util.ArrayList;
 import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.*;
 
-@AutoAdd.Ignore
 public class EasyModalChoiceDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyModalChoiceDemo.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 
 
     public EasyModalChoiceDemo() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         baseSecondMagic = secondMagic = 1;
     }
@@ -29,7 +28,8 @@ public class EasyModalChoiceDemo extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> easyCardList = new ArrayList<>();
         easyCardList.add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[0], cardStrings.EXTENDED_DESCRIPTION[1] + magicNumber + cardStrings.EXTENDED_DESCRIPTION[2], () -> att(new DrawCardAction(magicNumber))));
-        easyCardList.add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[3], cardStrings.EXTENDED_DESCRIPTION[4]+ secondMagic + cardStrings.EXTENDED_DESCRIPTION[5], () -> applyToSelfTop(new StrengthPower(p, secondMagic))));
+        easyCardList.add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[0], cardStrings.EXTENDED_DESCRIPTION[1] + magicNumber + cardStrings.EXTENDED_DESCRIPTION[2], () -> att(new DrawCardAction(magicNumber))));
+        easyCardList.add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[3], cardStrings.EXTENDED_DESCRIPTION[4] + secondMagic + cardStrings.EXTENDED_DESCRIPTION[5], () -> applyToSelfTop(new StrengthPower(p, secondMagic))));
         atb(new EasyModalChoiceAction(easyCardList));
     }
 

@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -24,11 +25,12 @@ import dreadbloonsurv.cards.colorless.bloons.RockBloon;
 import dreadbloonsurv.relics.DreadStarter;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 import static dreadbloonsurv.ModFile.Enums.DREAD_COLOR;
 import static dreadbloonsurv.ModFile.*;
 
-public class DreadCharacterFile extends CustomPlayer {
+public class DreadCharacterFile extends BaseHero {
 
     static final String ID = makeID("Dreadbloon");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
@@ -53,7 +55,7 @@ public class DreadCharacterFile extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                75, 75, 8, 99, 5, this, getStartingRelics(),
+                50, 50, 8, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -71,9 +73,6 @@ public class DreadCharacterFile extends CustomPlayer {
         }
         for (int i = 0; i < 1; i++) {
             retVal.add(Leer.ID);
-        }
-        for (int i = 0; i < 2; i++) {
-            retVal.add(RockBloon.ID);
         }
         return retVal;
     }
@@ -104,6 +103,11 @@ public class DreadCharacterFile extends CustomPlayer {
             makeCharacterPath("mainChar/orb/layer4d.png"),
             makeCharacterPath("mainChar/orb/layer5d.png"),
     };
+
+    @Override
+    public void damage(DamageInfo info) {
+        super.damage(info);
+    }
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {

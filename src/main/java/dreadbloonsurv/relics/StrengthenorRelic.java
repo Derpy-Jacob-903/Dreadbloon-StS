@@ -1,7 +1,11 @@
 package dreadbloonsurv.relics;
 
+import basemod.AutoAdd;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dreadbloonsurv.ModFile;
+import dreadbloonsurv.cards.cardvars.CardTags;
 
 import static dreadbloonsurv.cards.AbstractEasyCard.autoID;
 
@@ -29,5 +33,18 @@ public class StrengthenorRelic extends AbstractEasyRelic {
     }
     public boolean canSpawn() {
         return AbstractDungeon.player.hasRelic(starterReplaceID);
+    }
+
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        if (c.hasTag(CardTags.BLOON_DREADMOD)) {
+            if (c.type == AbstractCard.CardType.ATTACK) {
+                c.damage += 10;
+            }
+            else {
+                c.block += 10;
+            }
+        }
+        super.onPlayCard(c, m);
     }
 }

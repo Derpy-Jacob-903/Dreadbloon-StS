@@ -3,7 +3,7 @@
 /*    */ import com.badlogic.gdx.Gdx;
 /*    */ import com.badlogic.gdx.graphics.Color;
 /*    */ import com.badlogic.gdx.math.MathUtils;
-/*    */ import com.megacrit.cardcrawl.actions.AbstractGameAction;
+/*    */
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 /*    */ import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,10 +12,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 /*    */ import com.megacrit.cardcrawl.localization.StanceStrings;
 /*    */ import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-/*    */ import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+/*    */
 /*    */ import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
-/*    */ import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+/*    */
 
 import static dreadbloonsurv.ModFile.makeID;
 
@@ -60,7 +59,7 @@ import static dreadbloonsurv.ModFile.makeID;
 /* 56 */     this.particleTimer2 -= Gdx.graphics.getDeltaTime();
 /* 57 */     if (this.particleTimer2 < 0.0F) {
 /* 58 */       this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-/* 59 */       AbstractDungeon.effectsQueue.add(new StanceAuraEffect(makeID("ImmunityStance")));
+/* 59 */       AbstractDungeon.effectsQueue.add(new StanceAuraEffectButCooler(makeID("ImmunityStance"), StanceAuraEffectButCooler.STANCECOLOR.YELLOW));
 /*    */     } 
 /*    */   }
 

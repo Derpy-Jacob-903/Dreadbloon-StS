@@ -1,5 +1,6 @@
 package dreadbloonsurv.potions;
 
+import basemod.AutoAdd;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -9,6 +10,7 @@ import static dreadbloonsurv.ModFile.makeID;
 import static dreadbloonsurv.util.Wiz.adp;
 import static dreadbloonsurv.util.Wiz.applyToSelf;
 
+@AutoAdd.Ignore
 public class QuickReady extends AbstractEasyPotion {
     public static String ID = makeID("DemoPotion");
 

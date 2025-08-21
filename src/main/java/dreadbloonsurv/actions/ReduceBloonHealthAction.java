@@ -1,14 +1,11 @@
 package dreadbloonsurv.actions;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import dreadbloonsurv.powers.AbstractEasyPower;
-import dreadbloonsurv.powers.bloons.BaseBloon;
-import dreadbloonsurv.powers.bloons.BasicBloonPower;
+import dreadbloonsurv.powers.bloons.deprecated.BaseBloon;
 
 ///
 public class ReduceBloonHealthAction extends ReducePowerAction {

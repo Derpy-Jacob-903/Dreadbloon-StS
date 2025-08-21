@@ -9,6 +9,7 @@ import dreadbloonsurv.powers.AbstractEasyPower;
 
 import static dreadbloonsurv.ModFile.makeID;
 
+@Deprecated //Hero Shield effects use Temp HP
 public class ManaShieldPower extends AbstractEasyPower {
         public static final String POWER_ID = makeID("ManaShieldPower");
 

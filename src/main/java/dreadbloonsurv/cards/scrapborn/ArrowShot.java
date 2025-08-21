@@ -1,5 +1,6 @@
 package dreadbloonsurv.cards.scrapborn;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PersistFields;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +12,7 @@ import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.cards.AbstractPowerCostCard;
 
 public class ArrowShot extends AbstractPowerCostCard {
-    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass(), ModFile.Enums.SCRAP_COLOR);
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public ArrowShot() {

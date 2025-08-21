@@ -16,8 +16,8 @@ public class BloontoniumLeak extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public BloontoniumLeak() {
-        super(ID, -9, CardType.CURSE, CardRarity.CURSE, CardTarget.SELF, CardColor.CURSE, "BloontoniumLeak_CardArt");
-        tags.add(dreadbloonsurv.cards.cardvars.CardTags.POWER_DREADMOD);
+        super(ID, -2, CardType.CURSE, CardRarity.CURSE, CardTarget.SELF, CardColor.CURSE, "BloontoniumLeak_CardArt");
+        tags.add(dreadbloonsurv.cards.cardvars.CardTags.SPELL_DREADMOD);
         AutoplayField.autoplay.set(this, true);
     }
 

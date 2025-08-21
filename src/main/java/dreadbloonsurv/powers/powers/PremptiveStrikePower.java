@@ -1,6 +1,7 @@
 package dreadbloonsurv.powers.powers;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -20,28 +21,9 @@ public class PremptiveStrikePower extends AbstractEasyPower {
             this.canGoNegative = false;
         }
 
-    @Override
     public void atStartOfTurn() {
-        super.atStartOfTurn();
-    }
-
-    public void atEndOfTurn(boolean isPlayer) {
-            addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
-        }
-
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        AbstractCreature p = this.owner;
-        if (info.type != DamageInfo.DamageType.HP_LOSS)
-        {
-            if( p.currentBlock < info.output) {
-                addToBot(new ReducePowerAction(this.owner, this.owner, this, p.currentBlock));
-            }
-            else {
-                addToBot(new ReducePowerAction(this.owner, this.owner, this, info.output));
-            }
-            return damageAmount; //<== Not changed
-        }
-        return damageAmount; //<== Not changed
+        addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
+        addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 
     public void updateDescription() {

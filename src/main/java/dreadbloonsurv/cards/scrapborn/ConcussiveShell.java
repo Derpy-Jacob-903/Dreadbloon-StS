@@ -8,7 +8,7 @@ import dreadbloonsurv.cards.AbstractEasyCard;
 import dreadbloonsurv.cards.AbstractPowerCostCard;
 
 public class ConcussiveShell extends AbstractPowerCostCard {
-    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass());
+    public static final String ID = autoID(new Object(){}.getClass().getEnclosingClass(), ModFile.Enums.SCRAP_COLOR);
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public ConcussiveShell() {
@@ -17,7 +17,7 @@ public class ConcussiveShell extends AbstractPowerCostCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        allDmg(AbstractGameAction.AttackEffect.NONE);
+        allDmg(AbstractGameAction.AttackEffect.FIRE);
     }
 
     @Override
